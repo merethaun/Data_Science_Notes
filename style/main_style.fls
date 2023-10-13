@@ -1,8 +1,0 @@
-PWD c:/Users/m/Desktop/Uni/RWTH_Inhalt/23_24/Algorithmic learning theory/Notes/style
-INPUT c:/texlive/2019/texmf.cnf
-INPUT c:/texlive/2019/texmf-dist/web2c/texmf.cnf
-INPUT c:/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT c:/Users/m/Desktop/Uni/RWTH_Inhalt/23_24/Algorithmic learning theory/Notes/style/main_style.tex
-OUTPUT c:/Users/m/Desktop/Uni/RWTH_Inhalt/23_24/Algorithmic learning theory/Notes/style/main_style.log
-INPUT c:/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map
-INPUT c:/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm

@@ -1,19 +1,33 @@
-\documentclass{article}
+\documentclass[twoside]{article}
 
 \input{style/imports.tex}
 \input{style/main_style.tex}
 \input{style/note_style.tex}
 
-\title{Algorithmic Learning Theory}
+\title{Introduction to Data Science}
 \author{WS 23/24, RWTH Aachen}
 
 \begin{document}
-\maketitle \tableofcontents 
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{10pt}
+\renewcommand{\text}[1]{\textnormal{\color{black}{#1}}}
+
+\pagestyle{empty}
+\maketitle
+\thispagestyle{empty}
+\tableofcontents 
+
+\newpage % First page break
+\ifodd\value{page}
+\else
+  \mbox{}  % Prevent LaTeX from optimizing away the page break
+  \newpage % Second page break
+\fi
+
+\pagenumbering{arabic} % Start page numbering at 1
+\pagestyle{plain}
 
 \input{content/intro.tex}
-
-\input{content/slf.tex}
-
-
+\input{content/basics.tex}
 
 \end{document}
