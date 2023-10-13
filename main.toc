@@ -1,4 +1,5 @@
-\contentsline {section}{\numberline {1}Basics of data science}{3}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Data science pipeline}{3}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Four generic data science questions}{4}{subsection.1.2}%
+\contentsline {section}{\numberline {1}Basics of data science}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Data science pipeline}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Four generic data science questions}{3}{subsection.1.2}%
 \contentsline {subsection}{\numberline {1.3}Types of data}{4}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Supervised and unsupervised learning}{5}{subsection.1.4}%
