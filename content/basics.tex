@@ -122,7 +122,7 @@ Derived from the different kinds of tabular data, we have two fundamental learni
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.75\textwidth]{assets/basics/SV_vs_US.png}
+  \includegraphics[width=0.7\textwidth]{assets/basics/SV_vs_US.png}
   \caption{Comparing supervised (left) and unsupervised (right) learning}
   \label{fig:1_sv_vs_usv}
 \end{figure}
@@ -148,6 +148,186 @@ In the case of labeled data, we can apply \textbf{supervised learning}\sidenote{
 
 In contrast to labeled data, we can also have instances without target labels, where we can only apply techniques of \textbf{unsupervised learning}\sidenote{Unsupervised learning}. The goal is to find clusters or patterns.
 \begin{itemize}
-  \item 
+  \item \textbf{Clusters}\sidenote{Cluster} are homogeneous sets of instances. Examples include finding similar groups of patients, students, customers, orders, cars, companies, and so on.
+  \item \textbf{Patterns}\sidenote{Pattern} on the other hand reveal hidden structures in the data, so basically the unknown unknowns. Rules of some form can be found in many environments and can for example look like this:
+  \begin{itemize}
+    \item Customers who buy bread and butter typically pay by phone.
+    \item Patients who drink and smoke typically pay the hospital bill earlier than others.
+    \item Products produced by team A on Monday tend to be returned more frequently by customers.
+  \end{itemize} 
 \end{itemize}
+
+Interesting to regard is process discovery as a form of unsupervised learning in the way that a process model is just a very sophisticated rule. Important to mention, that this task can get very complex very quickly.
+
+
+\subsection*{Terminology}
+Important to see for all of data science: many different names are used to refer to the key disciplines contributing to data science.
+\begin{itemize}
+  \item This includes statistics, data analytics, data mining, machine learning, artificial intelligence, predictive analytics, process mining, generative AI, etc.
+  \item Since frequently the same name is used for different concepts (names describe heavily overlapping areas), they really need to be put in context and interpreted accordingly.
+\end{itemize}
+
+The point can be highlighted when looking at scoping machine learning. Here are examples of confusions:
+\begin{itemize}
+  \item Sometimes "machine learning" is used as a synonym for "deep neural networks" and sometimes they cover the entire spectrum of learning techniques.
+  \item Neural networks can be used as classifiers. But this doesn't imply that numerous classification techniques developed in data mining are part of machine learning in the narrow sense.
+\end{itemize}
+How confusing specifically the arrangement of terms around machine learning is and how fluent and unclear the actual terms are, is depicted in \ref{fig:1_ml_terminology}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{assets/basics/confusion_terminology.png}
+  \caption{Terms around machine learning}
+  \label{fig:1_ml_terminology}
+\end{figure}
+
+
+\subsection{Data science process}
+There are many different lifecycle models to describe phases in a data science project. This section will give a quick overview of some important ones.
+
+We'll start with \textbf{CRISP-DM}\sidenote{CRISP-DM} which stands for "Cross-industry standard process for data mining". It was developed in the late 1990s by different involved companies (SPSS, Teradata, Daimler AG, NCR Corporation, Ohra). The process consists of multiple steps playing together as visualized in \ref{fig:1_crisp_dm}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{assets/basics/crisp-dm.png}
+  \caption{CRISP-DM process}
+  \label{fig:1_crisp_dm}
+\end{figure}
+
+\begin{longtable}{p{0.0025\linewidth} >{\color{black}}p{0.35\linewidth} >{\color{gray}\footnotesize}p{0.6475\linewidth}}
+  \multicolumn{3}{l}{\textbf{Business understanding}} \\
+  & Determine business objective & Background, business objective, business success criteria \\
+  & Situation assessment & Inventory of resources, requirements, assumptions, constraints, risks, contingencies, terminology, costs, benefits \\
+  & Determine data mining goal & Data mining goals, data mining success criteria \\
+  & Produce project plan & Project plan, initial assessment of tools and techniques \\[5pt]
   
+  \multicolumn{3}{l}{\textbf{Data understanding}} \\
+  & Collect initial data & Initial data collection report \\
+  & Describe and explore data & Data description, exploration report \\
+  & Verify data quality & Data quality report \\[5pt]
+  
+  \multicolumn{3}{l}{\textbf{Data preparation}} \\
+  & Starting point: data set & Data set, data set description \\
+  & Select data & Rationale for inclusion and exclusion \\
+  & Clean data & Data cleaning report \\
+  & Construct data & Derived attributes, generated records \\
+  & Integrate and format data & Merged/reformatted data \\[5pt]
+  
+  \multicolumn{3}{l}{\textbf{Modeling}\footnote{The term "modeling" can be misleading, meant is the selection and assumptions (human) or automated learning by a tool or algorithm}} \\
+  & Select modeling technique & Modeling technique, modeling assumptions \\
+  & Generate test design & Test design \\
+  & Build model & Parameter settings, models, model description \\
+  & Assess model & Model assessment, revised parameter settings \\[5pt]
+  
+  \multicolumn{3}{l}{\textbf{Evaluation}} \\
+  & Evaluate results & Assessment of data mining results w.r.t. business success criteria, approved models \\
+  & Review process & Review of process \\
+  & Determine next steps & List of possible actions settings \\[5pt]
+  
+  \multicolumn{3}{l}{\textbf{Deployment}} \\
+  & Plan deployment & Deployment plan \\
+  & Plan monitoring and maintenance & Monitoring and maintenance plan \\
+  & Produce final report & Final report and final presentation \\
+  & Review project & Experience documentation
+  
+\end{longtable}
+
+Next, we have the \textbf{KDD}\sidenote{KDD} (Knowledge Discovery in Databases) process as shown in \ref{fig:1_kdd}. Another process model also developed by SAS institute is called \textbf{SEMMA}\sidenote{SEMMA} consisting of the phases Sample, Explore, Modify, Model, and Assess.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{assets/basics/kdd.png}
+  \caption{KDD process}
+  \label{fig:1_kdd}
+\end{figure}
+
+The next process model is specifically developed for \textbf{L* lifecycle model}\sidenote{L* lifecycle model} with multiple stages as shown in \ref{fig:1_l_star}. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{assets/basics/l_star.png}
+  \caption{L* lifecycle model}
+  \label{fig:1_l_star}
+\end{figure}
+
+Furthermore, we have two methodologies the process model can be related to. Important to implement and solidify are improvements in both.
+\begin{itemize}
+  \item \textbf{PDCA}\sidenote{PDCA} stands for Plan-Do-Check-Act and is a never-ending cycle with exactly these steps. 
+  \item The other one \textbf{DMAIC}\sidenote{DMAIC} stands for Define-Measure-Analyze-Improve-Control, with the following subtasks:
+  \begin{itemize}
+    \item {\color{gray}\footnotesize Define: launch team, establish charter, plan project, gather VOC/VOB, plan for change}
+    \item {\color{gray}\footnotesize Measure: document process, collect baseline data, narrow project focus}
+    \item {\color{gray}\footnotesize Analyze: analyze data, identify root causes, identify and remove waste}
+    \item {\color{gray}\footnotesize Improve: generate, evaluate, and optimize solutions, pilot, plan and implement}
+    \item {\color{gray}\footnotesize Control: control the process, validate project benefits}
+  \end{itemize}
+\end{itemize}
+
+Finally, we have two processes with the same components, but different ordering of the steps as can be seen in \ref{fig:1_etl_and_elt}. The short terms for the processes are \textbf{ETL}\sidenote{ETL} (extract, transform, load) and \textbf{ELT}\sidenote{ELT} (extract, load, transform).
+
+\begin{figure}[H]
+  \centering
+
+  \subcaptionbox{ETL with data warehouse}{
+    \includegraphics[width=0.45\textwidth]{assets/basics/etl.png}
+  }
+  \\\hspace*{0.5cm}\\
+  \subcaptionbox{ELT with data lake}{
+    \includegraphics[width=0.45\textwidth]{assets/basics/elt.png}
+  }
+
+  \caption{Processes with extraction, transform, and load steps}
+  \label{fig:1_etl_and_elt}
+\end{figure}
+
+As a final note on which steps are usually the most time-expensive: there is a so-called "80/20 rule" stating:
+\begin{itemize}
+  \item 80\% of a data scientist's time is spent on finding, cleaning, preprocessing, and organizing data. This leaves only 20\% to actually perform an analysis.
+  \item On the other hand, we have 20\% effort determining 80\% of the final result.
+\end{itemize}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.4\textwidth]{assets/basics/80_20.png}
+  \caption{80-20 rule}
+  \label{fig:1_80_20}
+\end{figure}
+
+
+\subsection{Challenges}
+To finalize the overview and basics of data science, let's look at the typical challenges.
+
+First, we have the challenge of \textbf{finding data}. There may be hundreds or thousands of tables, for example in the case of SAP the numbers can easily for up to $800'000$. But, different entities differ in their relevance, meaning some are less relevant than others.
+
+The next challenge is the \textbf{transformation of data}, meaning reorganization of data, filtering, extraction of relevant features, and so on. Not only for transformations, but also in general other challenges are \textbf{dealing with big data and streaming data}. The challenge of big data evolved over the last few decades, meaning typical stochastic methods try to solve the problem of saying something about entities given only a small amount of samples, whereas now we have a very high load of data, and need to solve the problem of dealing with these large amounts in a correct way. Also for streaming data, new approaches need to be thought of. Additionally, we also need to \textbf{deal with a concept shift}.
+
+Another huge challenge is ensuring \textbf{data quality}. This goes especially, since our provided data may be incomplete, invalid, inconsistent, imprecise, and/or outdated. Consider for example timestamps. They might be incomplete {\color{gray}\footnotesize(event is missing)}, invalid {\color{gray}\footnotesize(e.g. 14-14-2018)}, inconsistent {\color{gray}\footnotesize(14-07-2018 in contrast to 7-14-2018)}, or imprecise {\color{gray}\footnotesize(only regard part of available data: 2018-09-21\textit{\st{'T'13:00:10}})}.
+
+A very typical problem is \textbf{overfitting and underfitting} as it can be seen \ref{fig:1_over_under_fitting}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{assets/basics/over_under_fitting.png}
+  \caption{Over- and underfitting visualized}
+  \label{fig:1_over_under_fitting}
+\end{figure}
+
+The next challenge is the distinction of \textbf{correlation and causation}, explicitly that correlation does not imply causation. Consider this example:
+\begin{itemize}
+  \item Sunburn and ice cream have a strong correlation. When only these two features are considered, one might derive that either ice cream causes sunburn, or the other way around.
+  \item We know of course, that this is not correct and instead an additional factor causes both phenomena: if the sun is shining, it's warm and people eat ice cream, and also sun directly causes sunburn.
+\end{itemize}
+
+Besides the accuracy of our results, we also need to look into whether our results are valuable. Concretely, \textbf{results} should be \textbf{made actionable}. This means, that analysis results should be relevant, specific, timely, novel, and clear. Our goal is to go from "data" to "insight" and finally "action". Consider these examples:
+\begin{itemize}
+  \item Warning about a traffic jam should come before entering said traffic jam.
+  \item That it's currently raining is not too helpful information. Preferably is a notice ahead of time.
+\end{itemize}
+
+The last, but very important challenge is \textbf{responsible data science} (RDS)\sidenote{Responsible data science}. This includes ensuring of:
+\begin{itemize}
+  \item \textbf{Fairness}, meaning data science should exclude prejudice {\color{gray}\footnotesize(How to avoid unfair conclusions even if they are true?)}
+  \item \textbf{Accuracy}, so data science without guesswork {\color{gray}\footnotesize(How to answer questions with a guaranteed level of accuracy?)}
+  \item \textbf{Confidentiality} {\color{gray}\footnotesize(How to answer questions without revealing secrets?)}
+  \item \textbf{Transparency} {\color{gray}\footnotesize(How to clarify answers such that they become indisputable?)}
+\end{itemize}
