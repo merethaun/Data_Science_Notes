@@ -38,15 +38,162 @@ To get a better idea of how to get these properties for all of the features, we 
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{assets/visualization_and_extraction/example_single_featue.png}
+  \includegraphics[width=0.9\textwidth]{assets/visualization_and_extraction/example_single_featue.png}
   \caption{Example for single feature investigation (insurance claim fraud)}
   \label{fig:2_single_feature_example}
 \end{figure}
 
-To investigate the raw data further, let's visualize it. More specifically, we're going to visualize the distributions of the different features.
+To investigate the raw data further, let's visualize it. More specifically, we're going to visualize the distributions of the different features. Figure \ref{fig:2_distr_visualization} shows examplary plots.
 \begin{itemize}
   \item For finite amounts of possible feature classes, simply visualize the distribution as a bar diagram with the different classes as entries on the x-axis. The y-axis can either be the frequency or a percentage.
-  \item For continuous features with continuous variables/infinitely many possible feature values, group items (\textbf{binning}\sidenote{Binning}) and then visualize the resulting histogram.
+  \item For continuous features with continuous variables/infinitely many possible feature values, group items (\textbf{binning})\sidenote{Binning} and then visualize the resulting histogram.
 \end{itemize}
 
+\begin{figure}[H]
+  \centering
 
+  \subcaptionbox{Distribtion of categorical features}{
+    \includegraphics[width=0.75\textwidth]{assets/basics/etl.png}% TODO: adjust
+  }
+  \\\vspace*{0.5cm}
+  \subcaptionbox{Distribtion of numerical (continuous) features}{
+    \includegraphics[width=0.75\textwidth]{assets/basics/elt.png}% TODO: adjust
+  }
+
+  \caption{Distribution visualization}
+  \label{fig:2_distr_visualization}
+\end{figure}
+
+The binning comes with some challenges. When we select the amount of bins with evenly distributed width of each individual bin, we need to be aware not to \textbf{over- or underfit}\sidenote{Over- and underfitting for binning}. Examples can be found in \ref{fig:2_binning}. As one can see:
+\begin{itemize}
+  \item In the case of underfitting, the true function is not at all matched.
+  \item In the case of overfitting, there exist very steep valeys, the provided data points are more learned by heart rather than abstracting to a function.
+\end{itemize}
+
+\begin{figure}[H]
+  \centering
+
+  \subcaptionbox{Good approximation (14 bins)}{
+    \includegraphics[width=0.4\textwidth]{assets/basics/elt.png}% TODO: adjust
+  }
+  \\\vspace*{0.5cm}
+  \subcaptionbox{Underfitting (3 bins)}{
+    \includegraphics[width=0.4\textwidth]{assets/basics/etl.png}% TODO: adjust
+  }\hspace*{0.5cm}
+  \subcaptionbox{Overfitting (60 bins)}{
+    \includegraphics[width=0.4\textwidth]{assets/basics/elt.png}% TODO: adjust
+  }
+
+  \caption{Binning for continuous variables}
+  \label{fig:2_binning}
+\end{figure}
+
+The histograms furthermore can show different types, as depicted in \ref{fig:2_histogram_types}. Here are some further notes on the types:
+\begin{itemize}
+  \item \textbf{Uniform}\sidenote{Uniform} means all items have the same likelyhood (within a range).
+  \item \textbf{Unimodal}\sidenote{Unimodal} means we have one peak (can be tilted to one side), whereas \textbf{multimodal}\sidenote{Multimodal} means there are multiple distinct ones.
+  \item \textbf{Exponential}\sidenote{Exponential} means we have an exponential descrease in the likelihood over all instances.
+\end{itemize}
+
+\begin{figure}[H]
+  \centering
+
+  \subcaptionbox{Uniform}{
+    \includegraphics[width=0.3\textwidth]{assets/basics/etl.png}% TODO: adjust
+  }
+  \hspace*{0.015\textwidth}
+  \subcaptionbox{Unimodal, normal}{
+    \includegraphics[width=0.3\textwidth]{assets/basics/elt.png}% TODO: adjust
+  }
+  \hspace*{0.015\textwidth}
+  \subcaptionbox{Unimodal, skewed right}{
+    \includegraphics[width=0.3\textwidth]{assets/basics/elt.png}% TODO: adjust
+  }
+  \\\vspace*{0.5cm}
+  \subcaptionbox{Unimodal, skewed left}{
+    \includegraphics[width=0.3\textwidth]{assets/basics/etl.png}% TODO: adjust
+  }
+  \hspace*{0.015\textwidth}
+  \subcaptionbox{Exponential}{
+    \includegraphics[width=0.3\textwidth]{assets/basics/elt.png}% TODO: adjust
+  }
+  \hspace*{0.015\textwidth}
+  \subcaptionbox{Multimodal}{
+    \includegraphics[width=0.3\textwidth]{assets/basics/elt.png}% TODO: adjust
+  }
+
+  \caption{Histogram types}
+  \label{fig:2_histogram_types}
+\end{figure}
+
+One of the types mentioned, we're now gonna investigate a bit further. The \textbf{normal distribution}\sidenote{Normal distribution} is described by two important variables, whose effects on the distribution are shown in \ref{fig:2_normal}:
+\begin{itemize}
+  \item The \textbf{mean}\sidenote{Mean}$\mu$, so the expected value also characterizing the peak, and
+  \item The \textbf{standard deviation}\sidenote{Standard deviation}$\sigma$ characterizing how narrow the peak, or the distribution around the peak, is.
+\end{itemize}
+
+\begin{figure}[H]
+  \centering
+  \subcaptionbox{Variation of mean $\mu$}{
+    \includegraphics[width=0.45\textwidth]{assets/basics/etl.png}% TODO: adjust
+  }
+  \hspace*{0.05\textwidth}
+  \subcaptionbox{Variation of standard deviation $\sigma$}{
+    \includegraphics[width=0.45\textwidth]{assets/basics/elt.png}% TODO: adjust
+  }
+  \caption{Normal distribution}
+  \label{fig:2_normal}
+\end{figure}
+
+The normal probability distribution over $x$ is defined as:
+\begin{align*}
+  x \sim&\, \mathcal{N}(\mu, \sigma) \\
+  p(x) = &\,\frac{1}{\sqrt{2\pi \sigma^2}} \cdot \exp\left[ -\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2 \right]
+\end{align*}
+
+Interesting are now precise areas we instantly know something about. The $68-95-99.7$-rule tells us, as depicted in \ref{fig:2_three_sigma}.
+\begin{itemize}
+  \item $68\%$ of all observations will be within $1\sigma$-distance of the mean,
+  \item $95\%$ of all observations will be within $2\sigma$-distance of the mean, and
+  \item $99.7\%$ of all observations will be within $3\sigma$-distance of the mean
+\end{itemize}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{assets/basics/etl.png}% TODO: adjust
+  \caption{$68$-$95$-$99.7$-rule}
+  \label{fig:2_three_sigma}
+\end{figure}
+
+From this rule, we can now derive probabilities for different events. Consider the following examples, also visualized in \ref{fig:2_three_sigma_examples}:
+\begin{itemize}
+  \item Example 1 is interested in the amount of defects for some produced item. The \textbf{tolerance} can be defined as within the $2\sigma$-range, so with:
+  \begin{itemize}
+    \item \textbf{LSL} (lower spcification limit)\sidenote{LSL} at $\mu-2\sigma$, meaning only $2.5\%$ of the instances have a larger deviation into the negative direction from the mean than this limit, and
+    \item \textbf{USL} (upper spcification limit)\sidenote{USL} at $\mu-2\sigma$, meaning only $2.5\%$ of the instances have a larger deviation into the positive direction from the mean than this limit.
+  \end{itemize}
+  Combined, $100\%-2.5\%-2.5\%=95\%$ have a deviation from the mean lying withing the defined range.
+  \item Example 2 is interested in how many deliveries are too late. Therefore, it \textbf{only} defined an \textbf{upper bound} with the USL at $\mu+2\sigma$. This means, $100\%-2.5\%=97.5\%$ of the deliveries are not to late.
+\end{itemize}
+
+\begin{figure}[H]
+  \centering
+  \subcaptionbox{Example 1 (defect tolerance)}{
+    \includegraphics[width=0.45\textwidth]{assets/basics/etl.png}% TODO: adjust
+  }
+  \hspace*{0.05\textwidth}
+  \subcaptionbox{Example 2 (delivery times)}{
+    \includegraphics[width=0.45\textwidth]{assets/basics/elt.png}% TODO: adjust
+  }
+  \caption{Normal distribution}
+  \label{fig:2_three_sigma_examples}
+\end{figure}
+
+Furthermore, the rule also introduces the term of \textbf{six sigma} or also lean six sigma. It basically means: Processes operatiing with "six sigma quality" are assumed to have $< 3.4$ defects per million instances, so $\Pr(\text{error})=0.0000034$. It characterizes a process improvement approach. This likelyhood is a combination of $\pm6\sigma$ tolerance and a "drift" of $\pm1.5\sigma$. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{assets/visualization_and_extraction/lean_six_sigma.png}
+  \caption{Lean six sigma}
+  \label{fig:2_lean_six_sigma}
+\end{figure}
