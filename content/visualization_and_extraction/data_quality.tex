@@ -66,11 +66,11 @@ An especially popular technique to visualize distributions and outliers are \tex
 \begin{figure}[h]
   \centering
   \subcaptionbox{Properties on a box plot}{
-    \includegraphics[width=0.45\textwidth]{assets/basics/etl.png}% TODO: adjust
+    \includegraphics[height=4.9cm]{assets/visualization_and_extraction/box_properties.png}
   }
   \hspace*{0.05\textwidth}
   \subcaptionbox{Construction of a box plot}{
-    \includegraphics[width=0.45\textwidth]{assets/basics/elt.png}% TODO: adjust
+    \includegraphics[height=4.9cm]{assets/visualization_and_extraction/box_construction.png}
   }
   \caption{Box plot}
   \label{fig:2_box_plot}
@@ -78,14 +78,30 @@ An especially popular technique to visualize distributions and outliers are \tex
 
 Let's first take a look at the properties one can see in the box diagram. 
 \begin{itemize}
-  \item The \textbf{median} value\footnote{Median = The "middle" value, so the number halfway between lowest and highest number.} is depicted by the "Bar" in the center.\
-  \item The \textbf{IQR}\sidenote{IQR}, so the interquartile range\footnote{First to third quartile, where the first quartile is the number halfway between lowest and middle number, and third quatile is the number halway between middle and highest number.}, covering $50\%$ of the "middle instances" is depicted by the "Box".
+  \item The \textbf{median} value is depicted by the "Bar" in the center.
+  \begin{itemize}
+    \item The median is the "middle" value, so the number halway between lowest and highest number.
+  \end{itemize}
+  \item The \textbf{IQR}\sidenote{IQR}, so the interquartile range, covering $50\%$ of the "middle instances" is depicted by the "Box".
+  \begin{itemize}
+    \item The first quartile is the number halway between lowest and middle number, the third halway between middle and highest number.
+    \item The IQR is the distance between first and third quartile.
+  \end{itemize}
   \item The upper whisker indicates the \textbf{maximal} value below the $3^{\text{\color{mathblue}rd}} \text{\color{mathblue} quartile} + 1.5\cdot IQR$, whereas
   \item The lower whisker indicates the \textbf{minimal} value above the $1^{\text{\color{mathblue}st}} \text{\color{mathblue} quartile} - 1.5\cdot IQR$.
   \item Finally, the \textbf{outliers} are drawn separately.
 \end{itemize}
 
-The description already contained a bit of the construction details, which will now be explained in more detail with an example. Consider the (already ordered) data set \textcolor{mathblue}{\{ {\tiny \color{gray} 1: }1, {\tiny \color{gray} 2: }2, {\tiny \color{gray} 3: }5, {\tiny \color{gray} 4: }7, {\tiny \color{gray} 5: }8, {\tiny \color{gray} 6: }8, {\tiny \color{gray} 7: }9, {\tiny \color{gray} 8: }9, {\tiny \color{gray} 9: }9, {\tiny \color{gray} 10: }10, {\tiny \color{gray} 11: }10, {\tiny \color{gray} 12: }10, {\tiny \color{gray} 13: }11, {\tiny \color{gray} 14: }12, {\tiny \color{gray} 15: }14, {\tiny \color{gray} 16: }19, {\tiny \color{gray} 17: }23 \}}. Then we construct the box diagram like this:
+The description already contained a bit of the construction details, which will now be explained in more detail with an example. Consider the (already ordered) data set:
+\begin{align*}
+  \{
+  \text{\textcolor{mathblue}{\small 
+  {\tiny \color{gray} 1: }1, {\tiny \color{gray} 2: }2, {\tiny \color{gray} 3: }5, {\tiny \color{gray} 4: }7, {\tiny \color{gray} 5: }8, {\tiny \color{gray} 6: }8, {\tiny \color{gray} 7: }9, {\tiny \color{gray} 8: }9, {\tiny \color{gray} 9: }9, {\tiny \color{gray} 10: }10, {\tiny \color{gray} 11: }10, {\tiny \color{gray} 12: }10, {\tiny \color{gray} 13: }11, {\tiny \color{gray} 14: }12, {\tiny \color{gray} 15: }14, {\tiny \color{gray} 16: }19, {\tiny \color{gray} 17: }23 
+  }}
+  \}
+\end{align*}
+ 
+Then we construct the box diagram like this:
 \begin{itemize}
   \item The median value is $9$ \textcolor{gray}{\tiny(at position 9)}.
   \item The first quatile has the value $8$ \textcolor{gray}{\tiny(at position 5)}, the third one has the value $11$ \textcolor{gray}{\tiny(at position 13)} resulting in an $IQR = 11-8 = 3$.
@@ -99,7 +115,7 @@ Now, one final detail about box diagrams and also the topic of this paragraph is
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.45\textwidth]{assets/basics/etl.png}% TODO: adjust
+  \includegraphics[height=4.5cm]{assets/visualization_and_extraction/box_outliers.png}
   \caption{Handling outliers in box plots}
   \label{fig:2_box_plot_outlier_handling}
 \end{figure}

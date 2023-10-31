@@ -4,7 +4,7 @@ As a first step of actual data exploration, we are now going to look at which in
 
 What kind of data we can derive from the feature, depends of course on the data type. Generally deriving features from other ones is of course done best when dealing with structured data. Here, we have two types from which we can derive different properties.
 
-From \textbf{continuous features}, we can derive\sidenote{Properties from investigating individual \textbf{continuous} feature}\renewcommand{\arraystretch}{1.5}
+From \textbf{continuous features}, we can derive\sidenote{Investigation of individual \textbf{continuous} features}\renewcommand{\arraystretch}{1.5}
 
 \begin{tabular}{@{}>{\raggedleft}m{0.2\textwidth} @{}>{\color{black}\centering:}m{0.025\textwidth} @{}>{\color{black}}m{0.775\textwidth}}
   count && Number of instances having this feature \\
@@ -20,7 +20,7 @@ From \textbf{continuous features}, we can derive\sidenote{Properties from invest
 \end{tabular}
 
 
-From \textbf{categorical features}, we can derive\sidenote{Properties from investigating individual \textbf{categorical} feature}\footnote{obvious: $\min$, $\max$, {\color{mathblue}mean}, etc. can't be computed}
+From \textbf{categorical features}, we can derive\sidenote{Investigation of individual \textbf{categorical} feature}\footnote{obvious: $\min$, $\max$, {\color{mathblue}mean}, etc. can't be computed}
 
 \begin{tabular}{@{}>{\raggedleft}m{0.2\textwidth} @{}>{\color{black}\centering:}m{0.025\textwidth} @{}>{\color{black}}m{0.775\textwidth}}
   count && Number of instances having this feature \\
@@ -34,16 +34,16 @@ From \textbf{categorical features}, we can derive\sidenote{Properties from inves
   2\textsuperscript{nd}\,mode \% && Percentage of the second mode
 \end{tabular}
 
-To get a better idea of how to get these properties for all of the features, we will look at an example. Consider a table containing information about insurance claims fraud. The dataset contains 500 instances (claims) and a bunch of different features such as type, claim amount, etc. Now first, determine the data type of each feature, and then create one table for the numerical and one for the categorical features and fill it with the according information. The original data and the resulting feature-describing tables can be found in \ref{fig:2_single_feature_example}.
+To get a better idea of how to get these properties for all of the features, we will look at an example. Consider a table containing information about insurance claims fraud. The dataset contains 500 instances (claims) and a bunch of different features such as type, claim amount, etc. Now first, determine the data type of each feature, and then create one table for the numerical and one for the categorical features and fill it with the according information. The raw data can be found in \ref{fig:2_single_feature_example}.
 
-\begin{figure}[H]
+\begin{figure}[h]
   \centering
-  \includegraphics[width=0.9\textwidth]{assets/visualization_and_extraction/example_single_featue.png}
+  \includegraphics[width=\textwidth]{assets/visualization_and_extraction/single_feature_example/raw_data.png}
   \caption{Example for single feature investigation (insurance claim fraud)}
   \label{fig:2_single_feature_example}
 \end{figure}
 
-To investigate the raw data further, let's visualize it. More specifically, we're going to visualize the distributions of the different features. Figure \ref{fig:2_distr_visualization} shows examplary plots.
+To investigate the raw data further, let's first extract the resulting feature-describing tables and then also visualize the data. More specifically for the visualization, we're going to show the distributions of the different features. Figure \ref{fig:2_distr_visualization} shows both the properties of the features and examplary plots.
 \begin{itemize}
   \item For finite amounts of possible feature classes, simply visualize the distribution as a bar diagram with the different classes as entries on the x-axis. The y-axis can either be the frequency or a percentage.
   \item For continuous features with continuous variables/infinitely many possible feature values, group items (\textbf{binning})\sidenote{Binning} and then visualize the resulting histogram.
@@ -51,16 +51,14 @@ To investigate the raw data further, let's visualize it. More specifically, we'r
 
 \begin{figure}[H]
   \centering
-
-  \subcaptionbox{Distribtion of categorical features}{
-    \includegraphics[width=0.75\textwidth]{assets/basics/etl.png}% TODO: adjust
+  \subcaptionbox{Categorical features}{
+    \includegraphics[width=\textwidth]{assets/visualization_and_extraction/single_feature_example/categorical.png}
   }
-  \\\vspace*{0.5cm}
-  \subcaptionbox{Distribtion of numerical (continuous) features}{
-    \includegraphics[width=0.75\textwidth]{assets/basics/elt.png}% TODO: adjust
+  \\\vspace*{0.25cm}
+  \subcaptionbox{Numerical (continuous) features}{
+    \includegraphics[width=\textwidth]{assets/visualization_and_extraction/single_feature_example/continuous.png}
   }
-
-  \caption{Distribution visualization}
+  \caption{Feature-discribing table and distribution visualization}
   \label{fig:2_distr_visualization}
 \end{figure}
 
@@ -72,59 +70,74 @@ The binning comes with some challenges. When we select the amount of bins with e
 
 \begin{figure}[H]
   \centering
-
-  \subcaptionbox{Good approximation (14 bins)}{
-    \includegraphics[width=0.4\textwidth]{assets/basics/elt.png}% TODO: adjust
-  }
-  \\\vspace*{0.5cm}
-  \subcaptionbox{Underfitting (3 bins)}{
-    \includegraphics[width=0.4\textwidth]{assets/basics/etl.png}% TODO: adjust
-  }\hspace*{0.5cm}
-  \subcaptionbox{Overfitting (60 bins)}{
-    \includegraphics[width=0.4\textwidth]{assets/basics/elt.png}% TODO: adjust
-  }
-
+  \begin{subfigure}{0.32\textwidth}
+    \includegraphics[width=\textwidth]{assets/visualization_and_extraction/single_feature_example/bin_good.png}
+    \subcaption{Good approximation\\$\qquad \qquad14 \text{ \color{mathblue} bins}$}
+  \end{subfigure}
+  \begin{subfigure}{0.32\textwidth}
+    \includegraphics[width=\textwidth]{assets/visualization_and_extraction/single_feature_example/bin_underfitting.png}
+    \subcaption{Underfitting\\$3 \text{ \color{mathblue} bins}$}
+  \end{subfigure}
+  \begin{subfigure}{0.32\textwidth}
+    \includegraphics[width=\textwidth]{assets/visualization_and_extraction/single_feature_example/bin_overfitting.png}
+    \subcaption{Overfitting\\$60 \text{ \color{mathblue} bins}$}
+  \end{subfigure}
   \caption{Binning for continuous variables}
   \label{fig:2_binning}
 \end{figure}
 
-The histograms furthermore can show different types, as depicted in \ref{fig:2_histogram_types}. Here are some further notes on the types:
+The histograms furthermore can show different types, as depicted in \ref{fig:2_histogram_types}.
+
+\begin{figure}[H]
+  \centering
+
+  \begin{subfigure}{0.3\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{assets/visualization_and_extraction/single_feature_example/distr_uniform.png}
+    \subcaption{Uniform}
+  \end{subfigure}\hspace*{0.01\textwidth}
+  \begin{subfigure}{0.3\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{assets/visualization_and_extraction/single_feature_example/distr_uni_normal.png}
+    \subcaption{Unimodal, normal}
+  \end{subfigure}\hspace*{0.01\textwidth}
+  \begin{subfigure}{0.3\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{assets/visualization_and_extraction/single_feature_example/distr_uni_right.png}
+    \subcaption{Unimodal, skewed right}
+  \end{subfigure}
+  
+  \vspace*{0.1cm}
+  
+  \begin{subfigure}{0.3\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{assets/visualization_and_extraction/single_feature_example/distr_uni_left.png}
+    \subcaption{Unimodal, skewed left}
+  \end{subfigure}\hspace*{0.01\textwidth}
+  \begin{subfigure}{0.3\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{assets/visualization_and_extraction/single_feature_example/distr_exp.png}
+    \subcaption{Exponential}
+  \end{subfigure}\hspace*{0.01\textwidth}
+  \begin{subfigure}{0.3\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{assets/visualization_and_extraction/single_feature_example/distr_multi.png}
+    \subcaption{Multimodal}
+  \end{subfigure}
+
+  \caption{Histogram types}
+  \label{fig:2_histogram_types}
+\end{figure}
+
+Here are some further notes on the types:
 \begin{itemize}
   \item \textbf{Uniform}\sidenote{Uniform} means all items have the same likelyhood (within a range).
   \item \textbf{Unimodal}\sidenote{Unimodal} means we have one peak (can be tilted to one side), whereas \textbf{multimodal}\sidenote{Multimodal} means there are multiple distinct ones.
   \item \textbf{Exponential}\sidenote{Exponential} means we have an exponential descrease in the likelihood over all instances.
 \end{itemize}
 
-\begin{figure}[H]
-  \centering
 
-  \subcaptionbox{Uniform}{
-    \includegraphics[width=0.3\textwidth]{assets/basics/etl.png}% TODO: adjust
-  }
-  \hspace*{0.015\textwidth}
-  \subcaptionbox{Unimodal, normal}{
-    \includegraphics[width=0.3\textwidth]{assets/basics/elt.png}% TODO: adjust
-  }
-  \hspace*{0.015\textwidth}
-  \subcaptionbox{Unimodal, skewed right}{
-    \includegraphics[width=0.3\textwidth]{assets/basics/elt.png}% TODO: adjust
-  }
-  \\\vspace*{0.5cm}
-  \subcaptionbox{Unimodal, skewed left}{
-    \includegraphics[width=0.3\textwidth]{assets/basics/etl.png}% TODO: adjust
-  }
-  \hspace*{0.015\textwidth}
-  \subcaptionbox{Exponential}{
-    \includegraphics[width=0.3\textwidth]{assets/basics/elt.png}% TODO: adjust
-  }
-  \hspace*{0.015\textwidth}
-  \subcaptionbox{Multimodal}{
-    \includegraphics[width=0.3\textwidth]{assets/basics/elt.png}% TODO: adjust
-  }
-
-  \caption{Histogram types}
-  \label{fig:2_histogram_types}
-\end{figure}
+\subsubsection*{Normal distribution}
 
 One of the types mentioned, we're now gonna investigate a bit further. The \textbf{normal distribution}\sidenote{Normal distribution} is described by two important variables, whose effects on the distribution are shown in \ref{fig:2_normal}:
 \begin{itemize}
@@ -160,7 +173,7 @@ Interesting are now precise areas we instantly know something about. The $68$-$9
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{assets/visualization_and_extraction/norm_rule.png}
+  \includegraphics[width=0.5\textwidth]{assets/visualization_and_extraction/norm_rule.png}
   \caption{$68$-$95$-$99.7$-rule}
   \label{fig:2_three_sigma}
 \end{figure}
