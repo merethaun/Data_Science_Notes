@@ -151,7 +151,7 @@ The normal probability distribution over $x$ is defined as:
   p(x) = &\,\frac{1}{\sqrt{2\pi \sigma^2}} \cdot \exp\left[ -\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2 \right]
 \end{align*}
 
-Interesting are now precise areas we instantly know something about. The $68-95-99.7$-rule tells us, as depicted in \ref{fig:2_three_sigma}.
+Interesting are now precise areas we instantly know something about. The $68$-$95$-$99.7$-rule\sidenote{$68$-$95$-$99.7$-rule} tells us, as depicted in \ref{fig:2_three_sigma}.
 \begin{itemize}
   \item $68\%$ of all observations will be within $1\sigma$-distance of the mean,
   \item $95\%$ of all observations will be within $2\sigma$-distance of the mean, and
@@ -160,7 +160,7 @@ Interesting are now precise areas we instantly know something about. The $68-95-
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{assets/basics/etl.png}% TODO: adjust
+  \includegraphics[width=0.6\textwidth]{assets/visualization_and_extraction/norm_rule.png}
   \caption{$68$-$95$-$99.7$-rule}
   \label{fig:2_three_sigma}
 \end{figure}
@@ -179,13 +179,13 @@ From this rule, we can now derive probabilities for different events. Consider t
 \begin{figure}[H]
   \centering
   \subcaptionbox{Example 1 (defect tolerance)}{
-    \includegraphics[width=0.45\textwidth]{assets/basics/etl.png}% TODO: adjust
+    \includegraphics[width=0.4\textwidth]{assets/visualization_and_extraction/norm_rule_example_1.png}
   }
   \hspace*{0.05\textwidth}
   \subcaptionbox{Example 2 (delivery times)}{
-    \includegraphics[width=0.45\textwidth]{assets/basics/elt.png}% TODO: adjust
+    \includegraphics[width=0.4\textwidth]{assets/visualization_and_extraction/norm_rule_example_2.png}
   }
-  \caption{Normal distribution}
+  \caption{Examples for $68$-$95$-$99.7$-rule}
   \label{fig:2_three_sigma_examples}
 \end{figure}
 

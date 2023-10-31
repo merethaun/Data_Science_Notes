@@ -5,7 +5,13 @@ First, we have the challenge of \textbf{finding data}. There may be hundreds or 
 
 The next challenge is the \textbf{transformation of data}, meaning reorganization of data, filtering, extraction of relevant features, and so on. Not only for transformations, but also in general other challenges are \textbf{dealing with big data and streaming data}. The challenge of big data evolved over the last few decades, meaning typical stochastic methods try to solve the problem of saying something about entities given only a small amount of samples, whereas now we have a very high load of data, and need to solve the problem of dealing with these large amounts in a correct way. Also for streaming data, new approaches need to be thought of. Additionally, we also need to \textbf{deal with a concept shift}.
 
-Another huge challenge is ensuring \textbf{data quality}. This goes especially, since our provided data may be incomplete, invalid, inconsistent, imprecise, and/or outdated. Consider for example timestamps. They might be incomplete {\color{gray}\footnotesize(event is missing)}, invalid {\color{gray}\footnotesize(e.g. 14-14-2018)}, inconsistent {\color{gray}\footnotesize(14-07-2018 in contrast to 7-14-2018)}, or imprecise {\color{gray}\footnotesize(only regard part of available data: 2018-09-21\textit{\st{'T'13:00:10}})}.
+Another huge challenge is ensuring \textbf{data quality}. This goes especially, since our provided data may be incomplete, invalid, inconsistent, imprecise, and/or outdated. Consider for example timestamps. They might be 
+\begin{itemize}
+  \item Incomplete {\color{gray}\footnotesize(event is missing)}, 
+  \item Invalid {\color{gray}\footnotesize(e.g. 14-14-2018)},
+  \item Inconsistent {\color{gray}\footnotesize(14-07-2018 in contrast to 7-14-2018)}, or
+  \item Imprecise {\color{gray}\footnotesize(only regard part of available data: 2018-09-21\textit{\st{'T'13:00:10}})}.
+\end{itemize}
 
 A very typical problem is \textbf{overfitting and underfitting} as it can be seen \ref{fig:1_over_under_fitting}.
 
