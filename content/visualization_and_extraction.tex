@@ -23,7 +23,7 @@ It is important as a human to explore your data before applying mathematical ope
 
 The next example highlighting the importance of visualization and especially of a fitting and well-thought-out visualization is the diagram as shown in \ref{fig:2_napoleon}. 
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{assets/visualization_and_extraction/napolean.png}
   \caption{Multi-feature visualization (Napoleon's army)}
@@ -40,7 +40,7 @@ The chart shows the following aspects, which are quite a lot, while still keepin
 
 The final example highlights the importance of visualizing event or process data. In \ref{fig:2_event_data} we see the plot of different given event data input. With the visualization, some sort of trend, similarities, certain batching areas, etc. can be directly seen.
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{assets/visualization_and_extraction/event_data_visualization.png}
   \caption{Visualization of event data}
@@ -53,5 +53,48 @@ The final example highlights the importance of visualizing event or process data
 
 \input{content/visualization_and_extraction/feature_relation.tex}
 
-\subsection{Preparing for analysis}
-\subsection{Good and poor visualizations}
+\input{content/visualization_and_extraction/preparation.tex}
+
+\subsection*{Good and poor visualizations}
+With statistics and especially visualization, one can really manipulate the view on the provided data, so basically introduce a very strong bias. There's acutally a whole book about it, called "How to Lie with Statistics". The following images in \ref{fig:2_manipulate_perception} show some examples.
+
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=0.6\textwidth]{assets/visualization_and_extraction/lie/middle.png}
+    \subcaption{Choosing the \textbf{middle}}
+    \begin{itemize}
+      \item \textcolor{black}{\small Arithmetical average} \textcolor{gray}{\footnotesize  (get's pumped up by rare but high maximum)}
+      \item \textcolor{black}{\small Median} \textcolor{gray}{\footnotesize  (standing in middle)}
+      \item \textcolor{black}{\small Mode} \textcolor{gray}{\footnotesize  (most frequently occuring)}
+    \end{itemize}
+  \end{subfigure}\hspace*{0.05\textwidth}
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{assets/visualization_and_extraction/lie/scale.png}
+    \subcaption{Tampering with \textbf{scales}}
+    \begin{itemize}
+      \item \textcolor{black}{\small Easy manipulation of difference perception} 
+    \end{itemize}
+  \end{subfigure}
+
+  \vspace*{0.5cm}
+  \begin{subfigure}{0.7\textwidth}
+    \centering
+    \includegraphics[width=0.8\textwidth]{assets/visualization_and_extraction/lie/factor.png}
+    \subcaption{Visualizing \textbf{factor} two}
+    \begin{itemize}
+      \item \textcolor{black}{\small Adjusting whole volume according to height makes the difference seem more severe than just taking two instances} 
+    \end{itemize}
+  \end{subfigure}
+
+  \caption{Manipulation of perception via statistics and visualization}
+  \label{fig:2_manipulate_perception}
+\end{figure}
+
+As a good example, one can consider the information visualization book "The Visual Display of Quantitative Information" from Edward Rolf Tufte. It encourages the use of \textbf{data-rich illustrations} representing all available data such that:
+\begin{itemize}
+  \item One can check individual values, while still
+  \item Seeing trends and patterns when looking at the whole.
+\end{itemize}
