@@ -1,0 +1,46 @@
+\subsection{Statistics versus DM/ML}
+
+\textbf{Statistics} have been around for a while. Famous statisticians are for example:
+\begin{itemize}
+  \item John Graunt (1620-1674) who studied London's death records around 1660.
+  \begin{itemize}
+    \item He was able to predict the life expectance of a person at a particular age.
+    \item He was the first to create a "life table" with the probability of death for each age.
+  \end{itemize}
+  \item Francis Galton (1822-1911) who introduced many core statistical concepts at the end of the 19th century.
+  \begin{itemize}
+    \item He (re)invented variance, normal distribution, correlation, linear regression, etc.
+  \end{itemize}
+\end{itemize}
+
+Back then, statistics were concerned with the problem of making generalizations based of relatively little data. Since then, the availability of data changed drastically, with now having more of an overload of data. Therefore, more \textbf{pragmatic} instead of statistical approaches for handling large amounts of data where intorduced to fuel the progress in data science.
+\begin{itemize}
+  \item Major breakthroughs in the discovery of patterns and relationships are for example efficiently learning decision tress and association rules.
+  \item By traditional statisticians, these were described as "data fishing", "data snooping", or "data degrading" \textcolor{gray}{\footnotesize(surprisinlgy, some statisticians claim "owning" the data science field)}
+\end{itemize}
+
+Modern statisticians are now also concerned with a more pragmatic approach:
+\begin{itemize}
+  \item Leo Breiman (1928-2005) wrote a paper "Statistical Modeling: The Two Cultures" where he found out that
+  \begin{itemize}
+    \item The "classical statistics camp" ($95\%$) assumes nature's behaviour to fit some model and focusses on parameter estimation and goodness-of-fit tests.
+    \item The other $2\%$ of statisticians focus on simply finding a predictive function evaluated by predictive accuracy only (which fits the pragmatic approach).
+  \end{itemize}
+  \item John W. Tukey (1915-2000), whose one of those $2\%$ focussed on practical statistics.
+  \begin{itemize}
+    \item This includes \textbf{exploratory data analysis} instead of hypothesis testing, as a concrete example he invented boxplots.
+    \item The contrast to He therefore didn't focus on \textbf{hypothesis testing} which in contrast to his general approaches led to the image that statisticians aim to prove that nothing can be concluded from the data. Still, statistics can torture the data until it confesses, thereby creating wrong conclusions.
+  \end{itemize}
+\end{itemize}
+
+The concept shift summarized is:
+\begin{itemize}
+  \item Going from the concept of having a small amount or only samples of data, 
+  \item To the perspective of having a big amount of or all available data (due to computing power, storage, and tools).
+  \begin{itemize}
+    \item New appraoch: let the data speak, it is there.
+    \item Unfortunately, data is always dirty, biased, etc., but summarizing it can be surprisinlgy useful.
+    \item Typical risks are testing many hypothesis, over- or underfitting in the data, and a bias in the data or the representation. Therefore the new approach must be handled with care.
+  \end{itemize}
+\end{itemize}
+

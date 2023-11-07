@@ -1,0 +1,74 @@
+\subsection{Entropy}
+
+As a main motivation of why we need the term entropy, let's first look at the idea of \textbf{information gain}\sidenote{Information gain}. This can be applied to decision trees and asks for improvement in knowledge with each partition-step, so a better predictability of class labels in the nodes. This implies more homogenous interior nodes with every layer as for example visualized in \ref{fig:3_information_gain}.
+
+\begin{figure}[h]
+  \centering
+  % TODO: \includegraphics[width=\textwidth]{assets/trees/}
+  \caption{Idea of information gain and entropy intuition}
+  \label{fig:3_information_gain}
+\end{figure}
+
+Next, we'll take a look into the intuition of the term \textbf{entropy}\sidenote{Entropy}. Figure \ref{fig:3_information_gain} also displays the entropy values. As one can see in the example:
+\begin{itemize}
+  \item Entropy \textbf{measures the impurity} in a set.
+  \item With higher entropy, the \textbf{uncertainty in guessing} a class label grows.
+  \item For a low entropy, the information gained when investigating the according data set is not very high, basically the data is "compressable". Entropy therefore also indicates \textbf{incompressibility}.
+  \item Or put alternatively: entropy represents the number of bits needed to encode one instance knowing the population it comes from.
+\end{itemize}
+
+All of these statements are summarized in the formula:
+\begin{align*}
+  H(t) = - \sum_{i=1}^{n} \big( \Pr(t=i) \cdot \log_s (\Pr(t=i)) \big)
+\end{align*}
+The minus occurs, since $log_s(\frac{1}{x})=-\log_s(x)$. In this course, we will always take the logarithmic base $s=2$.
+
+Here are three examples for entropy calculations: We consider the colored dots as in \ref{fig:3_information_gain}.
+\begin{enumerate}
+  \item The first example has a high entropy value. We have the following distribution of colored dots: 
+  \begin{itemize}
+    \item $7$ red, $3$ blue, and $4$ green dots
+    \item So overall, $14$ dots.
+  \end{itemize}
+  This implies $H(t_1)=-\big(
+    \frac{7}{14} \cdot \log_2(\frac{7}{14}) + \frac{3}{14} \cdot \log_2(\frac{3}{14}) + \frac{4}{14} \cdot \log_2(\frac{4}{14}) 
+  \big) = 1.49261$
+  \item The second example has a more or less middle high entropy value. We have the following distribution of colored dots: 
+  \begin{itemize}
+    \item $2$ red, $0$ blue, and $3$ green dots
+    \item So overall, $5$ dots.
+  \end{itemize}
+  This implies $H(t_2)=-\big(
+    \frac{2}{5} \cdot \log_2(\frac{2}{5}) + \frac{2}{5} \cdot \log_2(\frac{2}{5}) 
+  \big) = 0.97095$
+  \item The last example has the minimum entropy value. We have the following distribution of colored dots: 
+  \begin{itemize}
+    \item $0$ red, $0$ blue, and $3$ green dots
+    \item So overall, $3$ dots.
+  \end{itemize}
+  This implies $H(t_3)=-\big(
+    \frac{3}{3} \cdot \log_2(\frac{3}{3}) 
+  \big) = 0$
+\end{enumerate}
+
+Now that we saw an example, we can easily see the \textbf{bounds of entropies}\sidenote{Bounds on $H$}.
+\begin{itemize}
+  \item The lowest possible entropy value yields when all instances have the same value, then $H(t) = 0$.
+  \begin{itemize}
+    \item Then there is no impurity at all, no uncertainty when guessing, and the information in the data is highly compressible.
+  \end{itemize}
+  \item The highest possible entropy value yields when we have an even distribution over all possible values, then $H(t) = - n (\frac{1}{n}\cdot \log_2(\frac{1}{n})) = \log_2(n)$ is maximized
+  \begin{itemize}
+    \item E.g., fpr $3$ possible values: $log_2(3) \approx 1.58$
+    \item Then there is the highest possible impurity, highest uncertainty when guessing, and the information in the data is incompressible.
+  \end{itemize}
+\end{itemize}
+
+Our goal when building decision trees is to have \textbf{pure leafs}, or the lowest possible average over the entropies of all leafs. With the entropy, we can now also put a number to the concept of information gain or loss, as can be seen in \ref{fig:3_information_gain_example}. When we have to select the next decision deviding an interior node, we select the features resulting in the least \textbf{remaining entropy} $rem$\sidenote{$rem$}, which is the weighted average over all subnodes.
+
+\begin{figure}[h]
+  \centering
+  % TODO: \includegraphics[width=\textwidth]{assets/trees/}
+  \caption{Example for information gain and loss}
+  \label{fig:3_information_gain_example}
+\end{figure}

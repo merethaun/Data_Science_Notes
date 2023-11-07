@@ -1,0 +1,60 @@
+\subsection{Decision trees}
+
+A typical decision tree looks as in image \ref{fig:3_tree_example}.
+
+\begin{figure}[h]
+  \centering
+  % TODO: \includegraphics[width=\textwidth]{assets/trees/}
+  \caption{Decision tree for person distinction (different grouping)}
+  \label{fig:3_tree_example}
+\end{figure}
+
+The example shows that a \textbf{decision tree}\sidenote{Decision tree} is build by \textbf{grouping} instances step by step. 
+\begin{itemize}
+  \item The instances are partitioned into increasingly smaller groups.
+  \item How the groups are formed decides the outcome of the concrete decision tree. 
+\end{itemize}Thereby, the instances are partitioned into \textbf{increasingly smaller groups}. How the groups are formed decides the outcome of the concrete decision tree.
+\begin{itemize}
+  \item Therefore, different trees are possible.
+  \item For the grouping, keep two goals in mind:
+  \begin{enumerate}
+    \item The tree shall be as small and simple as possible.
+    \item The leaves shall be homogeneous in terms of the target feature.
+  \end{enumerate}
+\end{itemize}
+
+The final goal of a decision tree is to explain the target feature in terms of the descriptive features, so we have a supervised learningn scenario.
+\begin{itemize}
+  \item For categorical features we can differentiate based on the different classes.
+  \item For numerical features, we need to define a threshold or something similar, to make a decision.
+\end{itemize}
+
+The following example about life expectancy given different features shows how from a given table with example instances, we can derive a (more or less) valid decision tree.
+
+\begin{figure}[h]
+  \centering
+  % TODO: \includegraphics[width=\textwidth]{assets/trees/}
+  \caption{Example for deriving a decision tree from tabular data (life expectancy)}
+  \label{fig:3_smoke_tree_example}
+\end{figure}
+
+So summarized, a decision tree looks as follows: We have three types of nodes:\sidenote{Decision tree components}
+\begin{itemize}
+  \item A \textbf{root node} refering to all instances,
+  \item \textbf{Interior nodes} partitioning the set of instances based on a descriptive feature, and
+  \item \textbf{Leaf nodes} that have a label (the target feature value) that hopefully corresponds to a homogeneous group of instances with the same label.
+\end{itemize}
+
+How the partitioning influences the size and therefore efficiency of the decision tree can be seen in the example in \ref{fig:3_paritioning_example}. Both the good and bad partitioning options classify the observed instances correctly, but one is more simple and seems better. While investigating the example, keep the following keywords in mind:\sidenote{Partitioning keywords}
+\begin{itemize}
+  \item Avoid overfitting
+  \item Apply Occam's razor \textcolor{gray}{\footnotesize (problem-solving principle recommending searching for explanation constructed with smallest possible set of elements = simplest solution is best one)}
+  \item Prefer shallow trees
+\end{itemize}
+
+\begin{figure}[h]
+  \centering
+  % TODO: \includegraphics[width=\textwidth]{assets/trees/}
+  \caption{Example for good/bad partitioning of same problem}
+  \label{fig:3_partitioning_example}
+\end{figure}
