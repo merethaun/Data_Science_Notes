@@ -7,3 +7,20 @@
 
 \definecolor{mathblue}{RGB}{0, 81, 162}
 \everymath{\color{mathblue}}
+
+
+% Code
+\definecolor{codegreen}{RGB}{17, 138, 96}
+\lstdefinestyle{pseudocode}{
+  basicstyle=\footnotesize,
+  breaklines=true,
+  numbers=left,
+  numbersep=5pt,
+  numberstyle=\tiny\color{gray},
+  mathescape=true,
+  columns=flexible,
+  commentstyle=\color{codegreen}, % Set the style for comments
+  morecomment=[l]{//}, % Define the start of a line comment
+  morecomment=[s]{/*}{*/}, % Define the start and end of a block comment
+  breakautoindent=false
+}
