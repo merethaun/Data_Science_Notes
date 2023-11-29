@@ -1,0 +1,31 @@
+\section{Regression}
+
+In the next three chapters, we'll look at \textbf{error-based learning}\sidenote{Error-based learning}. In general, this learning approach functions as follows:
+\begin{itemize}
+  \item We have a \textbf{parameterized prediction model} which is initialized with random parameters.
+  \item An \textbf{error function}\sidenote{Error function} is then used to evaluate the performance of this model when it makes predictions for instances in a training dataset.
+  \item Based on the results of the error function, the parameters are \textbf{iteratively adjusted} to create a more and more accurate model.
+\end{itemize}
+
+There are different approaches to realizing error-based learning:
+\begin{itemize}
+  \item Regression (covered in this section)
+  \item SVMs (covered in the next section)
+  \item Neural networks (covered in a later section)
+  \item Genetic algorithms, or other evolutionary approaches
+\end{itemize}
+
+We'll start with \textbf{regression}\sidenote{Regression}, with the following basic idea. Our model is a function mapping the descriptive features to the target feature.  We want to find the function minimizing the error between prediction and observed data. When we compare this approach to decision trees, we see:
+\begin{itemize}
+  \item Decision trees were initially developed for categorical features and then extended to continuous features.
+  \item Regression followed the reverse path, which means it's most \textbf{suitable for continuous data}.
+  \item Still, both are supervised learning techniques.
+\end{itemize}
+
+\input{content/regression/simple_linear.tex}
+\subsection{Multiple descriptive features}
+\subsection{Interpretation of results}
+\subsection{Hanlding categorical features}
+\subsection{Logistic regression}
+\subsection{Extensions (non-linear and multinomial)}
+

@@ -10,22 +10,19 @@ First, let's look at \textbf{continuous descriptive features}. The challenge is 
 
 How this works is visualized as an example in \ref{fig:3_cont_descriptive_feature}.
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
-  \begin{subfigure}{0.45\textwidth}
-    \centering
-    \includegraphics[width=0.9\textwidth]{assets/trees/cont/descriptive_possible.png}
+  \begin{subfigure}{0.4\textwidth}
+    \includegraphics[width=0.8\textwidth]{assets/trees/cont/descriptive_possible.png}
     \subcaption{Possible thresholds}
-  \end{subfigure}
-  \begin{subfigure}{0.45\textwidth}
-    \centering
+
+    \vspace*{0.5cm}
     \includegraphics[width=0.9\textwidth]{assets/trees/cont/descriptive_decision.png}
     \subcaption{Thresholds selection}
   \end{subfigure}
-
-  \begin{subfigure}{0.6\textwidth}
+  \begin{subfigure}{0.5\textwidth}
     \centering
-    \includegraphics[width=0.9\textwidth]{assets/trees/cont/descriptive_final_trees.png}
+    \includegraphics[width=0.6\textwidth]{assets/trees/cont/descriptive_final_trees.png}
     \subcaption{Final tree}
     \textcolor{black}{\footnotesize Note: the same feature can be used twice along a path.}
   \end{subfigure}
@@ -36,28 +33,32 @@ How this works is visualized as an example in \ref{fig:3_cont_descriptive_featur
 
 Next, consider a \textbf{continuous target feature}. Here, we want to find descriptive features that "nicely" partition the target feature axis. 
 \begin{itemize}
-  \item How to distinguish and evaluate different classifications can be seen in \ref{fig:3_classification_target}
+  \item How to distinguish and evaluate different classifications can be seen in \ref{fig:3_classifications_target}
   \item Impurity is measured by the variance within a partition (so a leaf in the decision tree). 
   \item But the split can't use the target feature as a decision. Instead, the weighted variance after the split is used as a performance criterion.
   \begin{itemize}
     \item The smaller, the better.
-    \item $var(t, \mathcal{D}) = \frac{\sum_{i=1}^{n}(t_i-\bar{t})^2}{n-1}$
+    \item $var(t, \mathcal{D}) = \frac{1}{n-1} \sum_{i=1}^{n}(\,t_i-\bar{t}\,)^2$
   \end{itemize}
 \end{itemize}
 
 \begin{figure}[h]
   \centering
-  \begin{subfigure}{0.3\textwidth}
+  \begin{subfigure}{0.5\textwidth}
     \centering
     \includegraphics[width=0.9\textwidth]{assets/trees/cont/target_good.png}
     \subcaption{Good classification}
   \end{subfigure}
-  \begin{subfigure}{0.3\textwidth}
+
+  \vspace*{0.5cm}
+  \begin{subfigure}{0.5\textwidth}
     \centering
     \includegraphics[width=0.9\textwidth]{assets/trees/cont/target_ok.png}
     \subcaption{Reasonable classification}
   \end{subfigure}
-  \begin{subfigure}{0.3\textwidth}
+
+  \vspace*{0.5cm}
+  \begin{subfigure}{0.5\textwidth}
     \centering
     \includegraphics[width=0.9\textwidth]{assets/trees/cont/target_bad.png}
     \subcaption{Poor classification}
@@ -70,7 +71,7 @@ It's important to keep track of over- and underfitting, as visualized in \ref{fi
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.9\textwidth]{assets/trees/cont/target_overunder.png}
+  \includegraphics[width=0.5\textwidth]{assets/trees/cont/target_overunder.png}
   \caption{Over- and underfitting in continuous target feature classification}
   \label{fig:3_overunder_target}
 \end{figure}

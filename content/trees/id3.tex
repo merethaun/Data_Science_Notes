@@ -98,22 +98,15 @@ A comparison of all the evaluation metrics can be found in figure \ref{fig:3_id3
 
 
 \subsubsection*{Pruning decision trees}
-When applying the ID3-algorithm to build decision trees, two possible problems can occur:
-\begin{itemize}
-  \item The decision tree overfits the data.
-  \item The decision tree is too complex or deep.
-\end{itemize}
+When applying the ID3-algorithm to build decision trees, two possible problems can occur: The decision tree overfits the data, or is too complex or deep.
 For those problems, there are now two solution directions:
 \begin{itemize}
   \item Pre-pruning, so an early stopping, functioning forwards, and
   \item Post-pruning, so a reduced error, functioning backward.
 \end{itemize}
 
-We'll first take a deeper look into \textbf{pre-pruning}\sidenote{Pre-pruning}, where at some point the procedure of creating subtrees is \textbf{stopped} at which point the label is determined via majority vote. There are many possible stopping criteria, for example:
-\begin{itemize}
-  \item Lower bound on number of instances.
-  \item Lower bound for information gain.
-\end{itemize}
+We'll first take a deeper look into \textbf{pre-pruning}\sidenote{Pre-pruning}, where at some point the procedure of creating subtrees is \textbf{stopped} at which point the label is determined via majority vote. There are many possible stopping criteria, for example, lower bounds on the number of instances or on the information gain.
+
 The trees resulting from pre-pruning may not be consistent with respect to the data. But they generalize and therefore avoid overfitting nicely. So the procedure is very efficient, but strong dependencies at lower levels of the tree might be missed.
 
 Next, let's investigate \textbf{post-pruning}\sidenote{Post-pruning}, where first the whole decision tree is built and then some branches are \textbf{cut-off} that don't add too much information. One common approach for cutting off is to
@@ -136,9 +129,9 @@ The concept relates to the "wisdom of the crowds" and aims at avoiding overfitti
 
 The first implementation of ensembles is called \textbf{boosting}\sidenote{Boosting} where an iterative correction in a sequential manner happens. 
 \begin{itemize}
-  \item This correction happens by changing the data set based on previous misclassifications.
-  \item Instances that were wrongly classified get a higher weight for training the next model.
-  \item This creates a sequence of models, that combined lead to a (rater) correct classification.
+  \item The correction happens by changing the data set based on previous misclassifications.
+  \item Wrongly classified instances get a higher weight for training the next model.
+  \item This creates a sequence of models, that combined lead to a (rather) correct classification.
 \end{itemize}
 
 The second implementation is called \textbf{bagging}\sidenote{Bagging} where data is split upfront allowing a parallel rather than sequential model training. We alter the original data set by adjusting the rows (so the instances).
@@ -159,22 +152,25 @@ A fourth implementation combines feature and instance bagging and is called \tex
 
 \begin{figure}[h]
   \centering
-  \begin{subfigure}{0.3\textwidth}
+  \begin{subfigure}{0.32\textwidth}
     \centering
     \includegraphics[width=0.9\textwidth]{assets/trees/id3/ensemble_instance_bagging.png}
     \subcaption{(Instance) bagging}
+    \textcolor{white}{\footnotesize test }
   \end{subfigure}
-  \begin{subfigure}{0.3\textwidth}
+  \begin{subfigure}{0.32\textwidth}
     \centering
-    \includegraphics[width=0.9\textwidth]{assets/trees/id3/ensemble_feature_bagging.png}
-    \subcaption{Subspace sampling (feature bagging)}
+    \includegraphics[width=0.87\textwidth]{assets/trees/id3/ensemble_feature_bagging.png}
+    \subcaption{Subspace sampling}
+    \textcolor{black}{\footnotesize(Also called feature bagging)}
   \end{subfigure}
-  \begin{subfigure}{0.3\textwidth}
+  \begin{subfigure}{0.32\textwidth}
     \centering
     \includegraphics[width=0.9\textwidth]{assets/trees/id3/ensemble_comb_bagging.png}
     \subcaption{Random forest}
+    \textcolor{white}{\footnotesize test }
   \end{subfigure}
-  \caption{Differnt ensemble bagging implementations}
+  \caption{Different ensemble bagging implementations}
   \label{fig:3_bagging}
 \end{figure}
 
