@@ -34,6 +34,7 @@ From \textbf{categorical features}, we can derive\sidenote{Investigation of indi
   2\textsuperscript{nd}\,mode \% && Percentage of the second mode
 \end{tabular}
 
+\begin{note}
 To get a better idea of how to get these properties for all of the features, we will look at an example. Consider a table containing information about insurance claims fraud. The dataset contains 500 instances (claims) and a bunch of different features such as type, claim amount, etc. Now first, determine the data type of each feature, and then create one table for the numerical and one for the categorical features and fill it with the according information. The raw data can be found in \ref{fig:2_single_feature_example}.
 
 \begin{figure}[h]
@@ -43,7 +44,7 @@ To get a better idea of how to get these properties for all of the features, we 
   \label{fig:2_single_feature_example}
 \end{figure}
 
-To investigate the raw data further, let's first extract the resulting feature-describing tables and then also visualize the data. More specifically for the visualization, we're going to show the distributions of the different features. Figure \ref{fig:2_distr_visualization} shows both the properties of the features and examplary plots.
+To investigate the raw data further, let's first extract the resulting feature-describing tables and then also visualize the data. More specifically for the visualization, we're going to show the distributions of the different features. Figure \ref{fig:2_distr_visualization} shows both the properties of the features and examplary plots.\end{note}
 \begin{itemize}
   \item For finite amounts of possible feature classes, simply visualize the distribution as a bar diagram with the different classes as entries on the x-axis. The y-axis can either be the frequency or a percentage.
   \item For continuous features with continuous variables/infinitely many possible feature values, group items (\textbf{binning})\sidenote{Binning} and then visualize the resulting histogram.
@@ -178,7 +179,7 @@ Interesting are now precise areas we instantly know something about. The $68$-$9
   \label{fig:2_three_sigma}
 \end{figure}
 
-From this rule, we can now derive probabilities for different events. Consider the following examples, also visualized in \ref{fig:2_three_sigma_examples}:
+From this rule, we can now derive probabilities for different events. \begin{note}Consider the following examples, also visualized in \ref{fig:2_three_sigma_examples}:
 \begin{itemize}
   \item Example 1 is interested in the amount of defects for some produced item. The \textbf{tolerance} can be defined as within the $2\sigma$-range, so with:
   \begin{itemize}
@@ -188,6 +189,7 @@ From this rule, we can now derive probabilities for different events. Consider t
   Combined, $100\%-2.5\%-2.5\%=95\%$ have a deviation from the mean lying withing the defined range.
   \item Example 2 is interested in how many deliveries are too late. Therefore, it \textbf{only} defined an \textbf{upper bound} with the USL at $\mu+2\sigma$. This means, $100\%-2.5\%=97.5\%$ of the deliveries are not to late.
 \end{itemize}
+\end{note}
 
 \begin{figure}[H]
   \centering
@@ -202,7 +204,7 @@ From this rule, we can now derive probabilities for different events. Consider t
   \label{fig:2_three_sigma_examples}
 \end{figure}
 
-Furthermore, the rule also introduces the term of \textbf{six sigma} or also lean six sigma. It basically means: Processes operatiing with "six sigma quality" are assumed to have $< 3.4$ defects per million instances, so $\Pr(\text{error})=0.0000034$. It characterizes a process improvement approach. This likelyhood is a combination of $\pm6\sigma$ tolerance and a "drift" of $\pm1.5\sigma$. 
+Furthermore, the rule also introduces the term of \textbf{six sigma} or also lean six sigma. It basically means that processes operating with "Six Sigma quality" are assumed to have $< 3.4$ defects per million instances, so $\Pr(\text{error})=0.0000034$. It characterizes a process improvement approach. This likelihood is a combination of $\pm6\sigma$ tolerance and a "drift" of $\pm1.5\sigma$. 
 
 \begin{figure}[H]
   \centering

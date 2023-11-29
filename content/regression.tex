@@ -15,7 +15,12 @@ There are different approaches to realizing error-based learning:
   \item Genetic algorithms, or other evolutionary approaches
 \end{itemize}
 
-We'll start with \textbf{regression}\sidenote{Regression}, with the following basic idea. Our model is a function mapping the descriptive features to the target feature.  We want to find the function minimizing the error between prediction and observed data. When we compare this approach to decision trees, we see:
+We'll start with \textbf{regression}\sidenote{Regression} and the following basic idea. 
+\begin{align*}
+  \text{Our model: } & f : \text{\color{mathblue}descriptive features} \rightarrow \text{\color{mathblue}target features}\\
+  \text{Goal: } & \text{find } f \text{ minimizing } error(\text{\color{mathblue}prediction}, \text{\color{mathblue}observed data})
+\end{align*}
+When we compare this approach to decision trees, we see:
 \begin{itemize}
   \item Decision trees were initially developed for categorical features and then extended to continuous features.
   \item Regression followed the reverse path, which means it's most \textbf{suitable for continuous data}.

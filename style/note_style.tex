@@ -1,1 +1,8 @@
 \NewDocumentCommand{\sidenote}{m}{\marginnote{\footnotesize\color{gray}#1}}
+
+% Define the 'note' environment
+\newenvironment{note}{%
+  \everymath{\color{gray}}\color{gray}%
+}{%
+  \everymath{\color{mathblue}}\color{black}%
+}

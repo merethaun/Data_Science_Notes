@@ -1,2 +1,22 @@
 \subsection{Simple linear regression}
 
+\begin{note}
+  Consider the following simple example where we have:
+  \begin{itemize}
+    \item Rental price $p_r$ as our target feature, and
+    \item Size $s$ as our descriptive (continuous) feature
+  \end{itemize}
+  We assume a linear dependency $p_r = b + a \cdot s$ and now want to base our prediction of the rental prize on the size. The example will guide us through this subchapter.
+\end{note}
+
+The \textbf{general problem}\sidenote{General problem regression} is given as follows:
+\begin{itemize}
+  \item We have given $n$ data rows in a set $\mathcal{D}$ with a target feature $t$ and descriptive features $\mathbf{d} = (d[1], d[2], \cdots, d[m])$, and
+  \item We want to find a regression function $\mathbb{M}_\mathbf{w}$ with a constant weight and a weight for each feature, where
+  \item We predict $\text{\color{mathblue}pred}(t) = \mathbb{M}_\mathbf{w}(\mathbf{d}) = \mathbb{M}_{(w[0], w[1], \cdots, w[m])}(d[1], d[2], \cdots, d[m])$
+\end{itemize}
+\begin{note}
+  In our example, we only have one descriptive feature $\mathbf{d}=(d[1])$, two weights $\mathbf{w}=(w[0], w[1])$, and the regression function is linear, so $\underbrace{\mathbb{M}_\mathbf{w}(d)}_{p_r} = \underbrace{w[0]}_{b} + \underbrace{w[1]}_{a}\cdot\underbrace{d[1]}_{s}$. 
+\end{note}
+
+As one can see 

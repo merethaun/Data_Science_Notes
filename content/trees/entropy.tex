@@ -23,6 +23,7 @@ All of these statements are summarized in the formula:
 \end{align*}
 The minus occurs, since $log_s(\frac{1}{x})=-\log_s(x)$. In this course, we will always take the logarithmic base $s=2$.
 
+\begin{note}
 For a better understanding, we will calculate the entropy for three example sets from figure \ref{fig:3_information_gain}.
 
 \renewcommand{\arraystretch}{0.8}
@@ -46,6 +47,7 @@ For a better understanding, we will calculate the entropy for three example sets
   \Big) = 0$}
 \end{tabular}
 \renewcommand{\arraystretch}{1}
+\end{note}
 
 Now that we have seen an example, we can easily see the \textbf{bounds of entropies}\sidenote{Bounds on $H$}.
 \begin{itemize}
@@ -55,7 +57,7 @@ Now that we have seen an example, we can easily see the \textbf{bounds of entrop
   \end{itemize}
   \item The highest possible entropy value yields when we have an even distribution over all possible values, then $H(t) = - n \Big(\frac{1}{n}\cdot \log_2\left(\frac{1}{n}\right)\Big) = \log_2(n)$ is maximized
   \begin{itemize}
-    \item E.g., for $3$ possible values: $log_2(3) \approx 1.58$
+    \begin{note}\item E.g., for $3$ possible values: $log_2(3) \approx 1.58$\end{note}
     \item Then there is the highest possible impurity, highest uncertainty when guessing, and the information in the data is incompressible.
   \end{itemize}
 \end{itemize}

@@ -1,0 +1,26 @@
+\documentclass[twoside]{article}
+
+\input{style/imports.tex}
+\input{style/main_style.tex}
+\input{style/note_style.tex}
+
+\title{TEST FOR DEV: Introduction to Data Science}
+\author{WS 23/24, RWTH Aachen}
+
+\begin{document}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{10pt}
+\renewcommand{\text}[1]{\textnormal{\color{black}{#1}}}
+
+\counterwithin{lstlisting}{section}
+
+\pagestyle{empty}
+\maketitle
+\thispagestyle{empty}
+
+\pagenumbering{arabic} % Start page numbering at 1
+\pagestyle{plain}
+
+\input{content/regression.tex}
+
+\end{document}

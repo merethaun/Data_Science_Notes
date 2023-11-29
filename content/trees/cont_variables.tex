@@ -34,8 +34,8 @@ How this works is visualized as an example in \ref{fig:3_cont_descriptive_featur
 Next, consider a \textbf{continuous target feature}. Here, we want to find descriptive features that "nicely" partition the target feature axis. 
 \begin{itemize}
   \item How to distinguish and evaluate different classifications can be seen in \ref{fig:3_classifications_target}
-  \item Impurity is measured by the variance within a partition (so a leaf in the decision tree). 
-  \item But the split can't use the target feature as a decision. Instead, the weighted variance after the split is used as a performance criterion.
+  \item Impurity is measured by the variance within a partition \begin{note}{\footnotesize(so a leaf in the decision tree)}\end{note} 
+  \item But the split can't use the target feature as a decision. Instead, the weighted variance after the split is used as a performance criterion
   \begin{itemize}
     \item The smaller, the better.
     \item $var(t, \mathcal{D}) = \frac{1}{n-1} \sum_{i=1}^{n}(\,t_i-\bar{t}\,)^2$
@@ -86,7 +86,7 @@ It's important to keep track of over- and underfitting, as visualized in \ref{fi
 
 The \textbf{predicted value}, so the output of the decision tree, is the \textbf{average} value within a (leaf) node.
 
-
+\begin{note}
 To be able to still use the ID3-algorithm, the decision for $\mathbf{d}[best]$ needs to be adjusted.
 \begin{itemize}
   \item Instead of $\mathbf{d}[best] \leftarrow \arg\max_{d\in\mathbf{d}} IG(d, \mathcal{D})$, we will
@@ -100,5 +100,6 @@ In general, there are some extensions of ID3 implementing different ideas presen
   \item CART (classification and regression trees) use the Gini index, can handle continuous features, and can deal with missing values.
   \item CAID (Chi-square automatic interaction detector) relies on the Chi-square test to determine the best next split at each stop.
 \end{itemize}
+\end{note}
 
 

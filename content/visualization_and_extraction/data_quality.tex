@@ -1,6 +1,6 @@
 \subsection{Data quality}
 
-In the introduction, we already looked at some key challenges regarding data quality. In this subsection, we will investigate and search solutions for the some of the following typical data quality problems in detail:
+In the introduction, we already looked at some key challenges regarding data quality. In this subsection, we will investigate and search for solutions for some of the following typical data quality problems in detail:
 \begin{itemize}
   \item \textbf{Incompleteness} - missing instances or attributes
   \item \textbf{Invalidity} - impossible values
@@ -15,7 +15,7 @@ For that, we will take a look at missing, invalid, unlikely, and outlier values.
 Imagine different missing features\sidenote{Missing features} of some instances. Since some data is missing, we need to deal with this in some way. Here are the possible options:
 \begin{enumerate}
   \item Remove feature completely (for all instances)
-  \item Only consider instsances that have a value (this is done for per-feature-evaluation)
+  \item Only consider instances that have a value (this is done for per-feature-evaluation)
   \item Remove all instances that have one of the features missing
   \item Repair missing features (imputation)
 \end{enumerate}
@@ -38,12 +38,12 @@ The problem setting and the possible solutions are visualized in \ref{fig:2_miss
 \end{figure}
 
 \subsubsection*{Impossible values}
-The next typical challenge are impossible values\sidenote{Impossible values} that by some mistake were entered as data. Examples are:
+The next typical challenge is impossible values\sidenote{Impossible values} that by some mistake were entered as data. Examples are:
 \begin{itemize}
   \item Wrong date format: instead of \textcolor{mathblue}{2018-10-18}, we would have \textcolor{mathblue}{18-10-2018}
   \item Completely impossible date or time: \textcolor{mathblue}{2018-13-51}, \textcolor{mathblue}{23:61}
   \item There can be spelling errors, for example for colors: \textcolor{mathblue}{Bllue}
-  \item The data type might not make sense with the feature, like number of members as a float: \textcolor{mathblue}{6.5 member}
+  \item The data type might not make sense with the feature, like the number of members as a float: \textcolor{mathblue}{6.5 members}
 \end{itemize}
 
 The handling of this problem is solved by either manually correcting entries or handling them just as for missing features.
@@ -53,15 +53,15 @@ In contrast to impossible values, unlikely values are theoretically possible, bu
 \begin{itemize}
   \item Age: $123$ is rather unlikely, but possible
   \item Price: $120.000\$$ in a store where the other prices lie in the range of $5\$$ to $150\$$
-  \item Dates: even on dates, where one would usually expect a uniform distribtion over months and days, days $1$ to $12$ are more frequent than days $13$ to $31$\footnote{NOT the case anymore if date format \textcolor{mathblue}{DD-MM-YYYY} and \textcolor{mathblue}{MM-DD-YYYY} are mixed}
+  \item Dates: even on dates, where one would usually expect a uniform distribution over months and days, days $1$ to $12$ are more frequent than days $13$ to $31$\footnote{NOT the case anymore if date format \textcolor{mathblue}{DD-MM-YYYY} and \textcolor{mathblue}{MM-DD-YYYY} are mixed}
 \end{itemize}
-Whether a value is unlikely or not is identified based on \textbf{domain knowledge}\sidenote{Unlikely values, domain knowledge}. They can then be further investigated to see, whether the unlikely value is acutally valid.
+Whether a value is unlikely or not is identified based on \textbf{domain knowledge}\sidenote{Unlikely values, domain knowledge}. They can then be further investigated to see, whether the unlikely value is actually valid.
 
 
 \subsubsection*{Outlier values}
 In contrast to unlikely values, \textbf{outlier values}\sidenote{Outlier values} are identified based on the distribution. 
 
-An especially popular technique to visualize distributions and outliers are \textbf{box plots}\sidenote{Box plot}. They were first introduced by John Tukey in the book "Exploratory data analysis" in 1977. Figure \ref{fig:2_box_plot} shows the properties visualized by a box plot and also how to construct one given a data set. 
+An especially popular technique to visualize distributions and outliers is \textbf{box plots}\sidenote{Box plot}. They were first introduced by John Tukey in the book "Exploratory data analysis" in 1977. Figure \ref{fig:2_box_plot} shows the properties visualized by a box plot and also how to construct one given a data set. 
 
 \begin{figure}[h]
   \centering
@@ -80,18 +80,19 @@ Let's first take a look at the properties one can see in the box diagram.
 \begin{itemize}
   \item The \textbf{median} value is depicted by the "Bar" in the center.
   \begin{itemize}
-    \item The median is the "middle" value, so the number halway between lowest and highest number.
+    \item The median is the "middle" value, so the number is halfway between the lowest and highest number.
   \end{itemize}
   \item The \textbf{IQR}\sidenote{IQR}, so the interquartile range, covering $50\%$ of the "middle instances" is depicted by the "Box".
   \begin{itemize}
-    \item The first quartile is the number halway between lowest and middle number, the third halway between middle and highest number.
-    \item The IQR is the distance between first and third quartile.
+    \item The first quartile is the number halfway between the lowest and middle number, whereas the third is halfway between the middle and highest number.
+    \item The IQR is the distance between the first and third quartile.
   \end{itemize}
   \item The upper whisker indicates the \textbf{maximal} value below the $3^{\text{\color{mathblue}rd}} \text{\color{mathblue} quartile} + 1.5\cdot IQR$, whereas
   \item The lower whisker indicates the \textbf{minimal} value above the $1^{\text{\color{mathblue}st}} \text{\color{mathblue} quartile} - 1.5\cdot IQR$.
   \item Finally, the \textbf{outliers} are drawn separately.
 \end{itemize}
 
+\begin{note}
 The description already contained a bit of the construction details, which will now be explained in more detail with an example. Consider the (already ordered) data set:
 \begin{align*}
   \big\{
@@ -108,8 +109,9 @@ Then we construct the box diagram like this:
   \item Finally, the outliers are $1, 2, 19, 23$ \textcolor{gray}{\tiny(position 1, 2, 16, 17)}.
 \end{itemize}
 Those are all the necessary components to construct the box diagram.
+\end{note}
 
-Now, one final detail about box diagrams and also the topic of this paragraph is the handling of the outliers. They can first be removed (meaning remove values above and below the upper and lower fences), and their existance can be indicated by claming the removed values to these thresholds. The process is shown in \ref{fig:2_box_plot_outlier_handling}.
+Now, one final detail about box diagrams and also the topic of this paragraph is the handling of the outliers. They can first be removed (meaning remove values above and below the upper and lower fences), and their existence can be indicated by claiming the removed values to these thresholds. The process is shown in \ref{fig:2_box_plot_outlier_handling}.
 
 \begin{figure}[h]
   \centering

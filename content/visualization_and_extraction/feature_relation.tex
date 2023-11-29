@@ -3,7 +3,7 @@ So far, we only really looked into features separately. This section will now fo
 
 \subsubsection*{Scatter plots}
 
-As a first step to see whether a relation exists, first plot the two features. Examples for typical resulting \textbf{correlations}\sidenote{Correlation} is shown in \ref{fig:2_correlation}.
+As a first step to see whether a relation exists, first plot the two features. Examples for typical resulting \textbf{correlations}\sidenote{Correlation} are shown in \ref{fig:2_correlation}.
 
 \begin{figure}[H]
   \begin{subfigure}{0.3\textwidth}
@@ -25,7 +25,7 @@ As a first step to see whether a relation exists, first plot the two features. E
   \label{fig:2_correlation}
 \end{figure}
 
-As an example for detecting correlations, we have a data set about basketball players with different features. The raw data will not be included here. Instead, we will directly look at all correlations of the features simultaneously. This is visualized using a \textbf{scatter plot matrix} (SPLOM)\sidenote{SPLOM} as in \ref{fig:2_splom}.
+\begin{note}As an example for detecting correlations, we have a data set about basketball players with different features. The raw data will not be included here. Instead, we will directly \end{note}look at all correlations of the features simultaneously. This is visualized using a \textbf{scatter plot matrix} (SPLOM)\sidenote{SPLOM} as in \ref{fig:2_splom}.
 
 \begin{figure}[h]
   \centering
@@ -34,7 +34,7 @@ As an example for detecting correlations, we have a data set about basketball pl
   \label{fig:2_splom}
 \end{figure}
 
-Interesting to see in such a SPLOM is the mirror axis in opposite tiles of the matrix which is an absolutely linear line (so absolute correlation, or identity, as would be displayed if a feature would be displayed on a scatter plot compared to itself). This mirroring doesn't change the nature of a correlation. If feature A is positively correlated to feature B, the same goes in the other direction (equivalent for negative correlation).
+Interesting to see in such a SPLOM is the mirror axis in opposite tiles of the matrix which is an absolutely linear line (so absolute correlation, or identity, as would be displayed if a feature would be displayed on a scatter plot compared to itself). This mirroring doesn't change the nature of a correlation. If feature A is positively correlated to feature B, the same goes in the other direction (equivalently for negative correlation).
 
 \subsubsection*{Collection of bar plots}
 
@@ -59,7 +59,7 @@ Another way to display relations is via a collection of small multiple \textbf{b
   \label{fig:2_barplot}
 \end{figure}
 
-No relation is implied when the differently conditioned and non-conditioned bar plots don't show any significant difference, as for the example of career stages. On the other hand, a relation can be seen when the bar plots show specific differences. For example in the position case it can be seen that "guards" are more likely to have a shoe sponsor.
+No relation is implied when the differently conditioned and non-conditioned bar plots don't show any significant difference, as for the example of career stages. On the other hand, a relation can be seen when the bar plots show specific differences. \begin{note}For example in the position case it can be seen that "guards" are more likely to have a shoe sponsor.\end{note}
 
 The difference and implied relation can be further highlighted by using \textbf{stacked bar plots}\sidenote{Stacked bar plots} that show the conditioned percentage, as can be seen in \ref{fig:2_barplot_stack}.
 
@@ -72,7 +72,7 @@ The difference and implied relation can be further highlighted by using \textbf{
 
 \subsection*{Collection of histograms and box plots}
 
-In the case of continuous variables, instead of bar plots we can use a collection of small multiple \textbf{histograms}\sidenote{Collection of small multiple histograms}, as displayed in \ref{fig:2_histoplot}.
+In the case of continuous variables, instead of bar plots, we can use a collection of small multiple \textbf{histograms}\sidenote{Collection of small multiple histograms}, as displayed in \ref{fig:2_histoplot}.
 
 \begin{figure}[H]
   \centering
@@ -93,7 +93,7 @@ In the case of continuous variables, instead of bar plots we can use a collectio
   \label{fig:2_histoplot}
 \end{figure}
 
-Alternatively, \textbf{box plots} can be collected\sidenote{Collection of box plots} and utilised to identify relations. Figure \ref{fig:2_box_plot_coll} conducts the same relation between age or height to position. It further highlights the relatively strict separation of ages for individual positions.
+Alternatively, \textbf{box plots} can be collected\sidenote{Collection of box plots} and utilized to identify relations. \begin{note}Figure \ref{fig:2_box_plot_coll} conducts the same relation between age or height to position. It further highlights the relatively strict separation of age for individual positions.\end{note}
 
 \begin{figure}[H]
   \centering
@@ -114,14 +114,14 @@ Alternatively, \textbf{box plots} can be collected\sidenote{Collection of box pl
 
 \subsubsection*{Descriptive statistics}
 
-To not only see the relation, but also classify it with values, we know introduce some basic descriptive statistics. Based on $n$ values $a_1, \dots, a_n$, we have the \textbf{sample mean} $\overline{a}$ and \textbf{sample variance} $var(a)$ and \textbf{standard deviation} $sd(a)$ as:
+To not only see the relation but also classify it with values, we now introduce some basic descriptive statistics. Based on $n$ values $a_1, \dots, a_n$, we have the \textbf{sample mean} $\overline{a}$ and \textbf{sample variance} $var(a)$ and \textbf{standard deviation} $sd(a)$ as:
 \begin{align*}
   \overline{a} = &\ \frac{1}{n}\sum_{i=1}^n a_i\sidenote{Sample mean}\allowdisplaybreaks\\
   var(a) = &\ \frac{\sum_{i=1}^n (a_i - \overline{a})^2}{n-1}\sidenote{Sample variance}\allowdisplaybreaks\\
   sd(a) = &\ \sqrt{var(a)} = \sqrt{\frac{\sum_{i=1}^n (a_i - \overline{a})^2}{n-1}}\sidenote{Standard deviation}
 \end{align*}
 
-A quick note on why we devide by $n-1$ and not $n$ for the calculation of $var(a)$. This is due to the estimated mean $\overline{a}$ instead of actual or true one $\hat{a}$. Simply put, since we can only estimate, we would rather overestimate the variance (devide by smaller number) instead of underestimating (devide by learger number) it. We would call a variance calculated by deviding by $n$ a biased estimator.
+A quick note on why we divide by $n-1$ and not $n$ for the calculation of $var(a)$. This is due to the estimated mean $\overline{a}$ instead of actual or true one $\hat{a}$. Simply put, since we can only estimate, we would rather overestimate the variance \begin{note}(divide by a smaller number)\end{note} instead of underestimating \begin{note}(divide by a larger number)\end{note} it. We would call a variance calculated by dividing by $n$ a biased estimator.
 
 To classify the relation between features, based on $n$ pairs of values $(a_1, b_1), \dots, (a_n, b_n)$ we have the \textbf{sample covariance} $cov(a, b)$ and the \textbf{correlation} $corr(a, b)$ as: 
 \begin{align*}
@@ -173,6 +173,6 @@ The updated SPLOM diagram, which basically contains the same information twice (
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.6\textwidth]{assets/visualization_and_extraction/feature_relation/splom_updated.png}
-  \caption{Scatter plot matrix for four feature with according $corr$-values}
+  \caption{Scatter plot matrix of four features with according $corr$-values}
   \label{fig:2_splom_corr}
 \end{figure}
