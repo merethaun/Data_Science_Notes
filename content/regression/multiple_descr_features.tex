@@ -1,0 +1,43 @@
+\subsection{Multiple descriptive features}
+
+We now assume a feature consisting of multiple elements:
+\begin{align*}\begin{aligned}
+  \mathbb{M}_\mathbf{w}(\mathbf{d}) &= \mathbf{w}[0] + \mathbf{w}[1]\mathbf{d}[1] + \cdots + \mathbf{w}[m]\mathbf{d}[m]\\
+  &= \mathbf{w}[0] + \sum_{j=1}^m \underbrace{\mathbf{w}[j]}_{\text{weight of the }i\text{-th feature }d[j]}\mathbf{d}[j]\\
+  &= \sum_{j=0}^m \mathbf{w}[j]\underbrace{\mathbf{d}[j]}_{\text{with }d[0] = 1}\\
+  &= \underbrace{\mathbf{w}\cdot\mathbf{d}}_{\text{dot product of vectors}}
+\end{aligned}\end{align*}
+
+In particular, this means we have $m+1$-dimensional vectors $\mathbf{d}_i$ and $\mathbf{w}$ with $m$ as the number of features. This notational convenience extends the normal feature vector $\mathbf{d}_i'$ by $\mathbf{d}_i[0] = 1$. With $n$ instances, we therefore have the error function:
+\begin{align*}\begin{aligned}
+  L_2(\mathbb{M}_\mathbf{w}, \mathcal{D}) &= \frac{1}{2}\sum_{i=1}^n (t_i - \underbrace{\mathbf{w}\cdot\mathbf{d}_i}_{= \mathbb{M}_\mathbf{w}(\mathbf{d}_i)})^2
+\end{aligned}\end{align*}
+
+With our now introduced multiple descriptive feature vector, we can write down the \textbf{sketch of} the overall \textbf{algorithm} of regression:
+\begin{figure}[h]
+  \begin{lstlisting}[
+    style=pseudocode, morekeywords={Require, if, then, else, for, each, do, make, return, repeat, until},
+    caption={Sketch of regression algorithm}, captionpos=b,
+    label=lst:4_regr_sketch
+  ]
+  Require: set of descriptive features $\mathcal{D}$
+  Require: learning rate $\alpha$ (controls how quickly algorithm converges)
+  Require: function $\Delta_{error}$ (determines the direction in which to adjust given weight $\mathbf{w}[i]$ to move down the slope of an error surface determined by $\mathcal{D}$)
+  Require: convergence criterion (indicating when the algorithm has been completed)
+  
+  $\mathbf{w}\leftarrow$ random starting point in weight space // randomly pick initial point
+  repeat
+    for each $\mathbf{w}[j]\in \mathbf{w}$ do
+      // run downhill in steepest direction with speed $\alpha$
+      $\mathbf{w}[j]\leftarrow \mathbf{w}[j] + \alpha\Delta_{error}(\mathcal{D}, \mathbf{w})[j]$
+  until convergence occurs // stop when improvements become too small
+  \end{lstlisting}
+\end{figure}
+
+For $\Delta_{error}$ we typically choose $\frac{\delta}{\delta \mathbf{w}[j]}L_2$. This means:
+\begin{itemize}
+  \item If the derivative is positive, lower the weight $\mathbf{w}[j]$,
+  \item If the derivative is negative, increase the weight $\mathbf{w}[j]$,
+  \item While $\alpha>0$ determines the speed in both cases.
+  \item Line 10 in \ref{lst:4_regr_sketch} would then result in $\mathbf{w}[j]\leftarrow \mathbf{w}[j] - \alpha \sum_{i=1}^n(t_i-\mathbf{w}\cdot\mathbf{d}_i)\mathbf{d}_i[j]$
+\end{itemize}
