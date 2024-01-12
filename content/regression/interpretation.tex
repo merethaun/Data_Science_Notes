@@ -1,0 +1,26 @@
+\subsection{Interpretation of results}
+
+For the one-feature case, the interpretation isn't difficult. We can simply see, that the target feature has some linear dependence on the descriptive feature. \begin{note} E.g., in our earlier example: the rental price has a "direct" dependency on the size.\end{note}
+
+It becomes more difficult when \textbf{interpreting results for multiple descriptive features}. This is due to the potentially completely different ranges of those features. The weights change dramatically when the units change (e.g. when changing $cm^2$ to $m^2$). This shows that the weight itself is irrelevant, only the sign has meaning.
+
+An alternative approach is the \textbf{significance test}\sidenote{Significance test}.
+
+In a simple version of this, we have:
+\begin{itemize}
+  \item Create a regression model using $k$ descriptive features and measure the error $\Delta'$.
+  \item Create $k$ regression models leaving out one descriptive feature at a time and measure the error $\Delta_i$ for $i\in[k]$.
+  \item The difference in error $|\Delta' - \Delta_i|$ indicates the significance of feature $i$ for $i\in[k]$
+\end{itemize}
+
+In a more complex way (no need to know details), we follow this approach:
+\begin{itemize}
+  \item Null hypothesis: the feature does \textit{not} have a significant effect on the model.
+  \item Null hypothesis is rejected when \textit{p-level} is too small ($1-5\%$) $\rightarrow$ a smaller p-value indicates a more important feature.
+  \item In statistical hypothesis testing:
+  \begin{itemize}
+    \item p-value or probability value: the probability of obtaining test results at least as extreme as results actually obtained during testing
+    \item Assumes a correct null hypothesis
+    \item Very small p-value means: such an extreme observed outcome is very unlikely under the null hypothesis
+  \end{itemize}
+\end{itemize}
