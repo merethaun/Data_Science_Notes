@@ -5,9 +5,12 @@
 \setlist[itemize]{itemsep=0pt, parsep=2pt, topsep=0pt} 
 \setlist[enumerate]{itemsep=0pt, parsep=2pt, topsep=0pt}
 
+\definecolor{burntorange}{rgb}{0.8, 0.33, 0.0}
 \definecolor{mathblue}{RGB}{0, 81, 162}
 \everymath{\color{mathblue}}
 
+\NewDocumentCommand{\cv}{m}{\vec{\mathbf{#1}}}
+\NewDocumentCommand{\norm}{m}{|\!| #1 |\!|}
 
 % Code
 \definecolor{codegreen}{RGB}{17, 138, 96}
