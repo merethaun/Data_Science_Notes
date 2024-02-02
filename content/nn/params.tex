@@ -1,0 +1,67 @@
+\subsection{Network parameters}
+Generally, a \textbf{topology}\sidenote{Topology} of a network consists of the following network parameters that need to be decided before starting with training:
+\begin{itemize}
+  \item Number of \textbf{input} units \begin{note}(typically given)\end{note}
+  \item Number of \textbf{hidden} layers and number of neurons in each hidden layer \begin{note}(one or more layers)\end{note}
+  \item Number of \textbf{output} units \begin{note}(typically given)\end{note}
+\end{itemize}
+
+Those parameters, but also generally how to train a network, raise the following questions:
+\begin{itemize}
+  \item How are the inputs selected?
+  \item How many hidden layers/neurons?
+  \item How many neurons are in the output layer?
+  \item How are the weights initialized? When and how are they updated?
+  \item How many examples are (needed to be) in the training set?
+\end{itemize}
+
+We'll investigate those training parameters now in a bit more detail, starting with the \textbf{inputs}. 
+\begin{itemize}
+  \item Typically, we normalize our inputs such that the values fall in the range of $[0.0, 1.0]$
+  \item Nominal or discrete-values attributes may be encoded s.t. there is one input unit per domain value
+  \begin{itemize}
+    \item For that we can use "One Hot Encoding", which we already saw in a previous chapter.
+    \begin{note}
+      \item E.g.: $X$ can take on the possible or known values $\{v_1, v_2, v_3\}$
+      \item $\rightarrow$ Now encode these by separate inputs:
+      \begin{align*}
+        X=v_1&\implies v_1 = 1, v_2 = 0, v_3 = 0\\
+        X=v_2&\implies v_1 = 0, v_2 = 1, v_3 = 0\\
+        X=v_3&\implies v_1 = 0, v_2 = 0, v_3 = 1\\
+      \end{align*}
+    \end{note}
+  \end{itemize}
+\end{itemize}
+
+Next, we have the parameters influencing the \textbf{outputs}. NNs can be used for both classification and numeric prediction.
+\begin{itemize}
+  \item For classification, the prediction of a class label given some input, we can either have one neuron to represent two classes ($0$ or $1$), or one neuron per class, similar to One Hot encoding.
+  \item Numeric prediction on the other hand has one contiuous-valued output neuron.
+\end{itemize}
+
+The next interesting parameter to investigate is the \textbf{weights}, which are the elements that are continuously updated to reduce the prediction error.
+\begin{itemize}
+  \item For the initialization, we typically have random values assigned to each weight.
+  \item Typical ranges for weights are: $w_{ij}\in[-1.0, 1.0]$ or $w_{ij}\in[-5.0, 5.0]$
+\end{itemize}
+
+For the \textbf{hidden layers} we first need to determine their amount and also the amount of neurons per hidden layer, as well as the activation functions.
+\begin{itemize}
+  \item There is no clear rule as to the "best" number of hidden layers and neurons, but they may affect the accuracy of the resulting trained network.
+  \item Network design is a trial-and-error process.
+\end{itemize}
+
+For the \textbf{training data} we have the following demands:
+\begin{itemize}
+  \item The amount of training data is crucial for the correctness of the trained network.
+  \item But, there is no robust way to indicate what the minimal size of the training set needs to be. As a rule of thumb, it goes:
+  \begin{align*}
+    \text{\# training instances} \geq \underbrace{10}_{\text{some advocate 50}} \cdot \text{\# weights in NN}
+  \end{align*}
+\end{itemize}
+
+Important to mention: the parameters determining the hidden layers and the amount of training data are linked:
+\begin{itemize}
+  \item A bigger NN allows to describe more sophisticated non-linear structures, BUT needs more training data
+  \item Further, we have the constant battle between over- and under-fitting, as shown in a previous chpater (\ref{fig:1_over_under_fitting}).
+\end{itemize}

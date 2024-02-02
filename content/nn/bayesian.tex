@@ -1,0 +1,49 @@
+\section{Naive Bayesian Classification}
+\setcounter{figure}{0}
+
+Next, we're gonna look at a classification based on stochastical formulas developed by Thomas Bayes (1701-1761, English statistician and philosopher). More concretely, the classification is based on Bayes' theorem, often used in probability-based learning.
+
+First, we'll lay down some basic statistics:
+\begin{align*}
+  A, \dots, Z: & \text{ Some event (can either be true or false)}\\
+  P(X): & \text{ Probability that }X\text{ holds}\\
+  P(X, Y): & \text{ Probability that both }X\text{ and }Y\text{ hold}\\
+  P(X | Y): & \text{ Probability that }X\text{ holds given }Y\text{ (conditional probability)}\\
+  P(\neg X)=&\ 1-P(X)\\
+  P(\neg X|Y)=&\ 1-P(X|Y)\\
+  P(Y)=&\  P(Y|X)P(X) + P(Y|\neg X)P(\neg X)
+\end{align*}
+
+Further, we have the product and chain rule:
+\begin{align*}
+  P(X, Y) =&\, P(X|Y)\cdot P(Y)\\
+  P(A, B, \dots, Y, Z) =&\, P(A, B, \dots, Y|Z)\cdot P(Z) = P(A|B,\dots, Y, Z)\cdots P(Y|Z) \cdot P(Z)\\
+\end{align*}
+
+If $X$ and $Y$ are independent, so $P(X|Y) = P(X)$, it further holds\footnote{Extendable for any number of events}:
+\begin{align*}
+  P(X, Y) = P(X)\cdot P(Y)
+\end{align*}
+
+And finally, we have \textbf{Bayes' theorem}\sidenote{Bayes' Theorem}, and so the generalized one, which can be simply derived from the product rule:
+\begin{align*}
+  P(Y|X) &=\, \frac{P(X|Y)\cdot P(Y)}{P(X)}
+  P(Y=y|x_1, \dots, x_m) &=\, \frac{P(x_1, \dots, x_m | Y=y) \cdot P(Y=y)}{P(x_1, \dots, x_m)}
+\end{align*}
+
+We can now apply the theorem to classification, by setting $X$ as the event that the target feature has a specific value and $Y$ that the descriptive features have specific values. The probabilities can then be estimated trivially. Formally, we have the Bayesian \textbf{maximize a posteriori (MAP)}\sidenote{MAP} prediction model:
+\begin{align*}
+  \mathbb{M}_{MAP}(\cv{x}) =& \arg\max_{\cv{y}} P[y|x_1, \dots, x_m]\\
+  =& \arg\max_{\cv{y}} \frac{P(x_1, \dots, x_m | y) \cdot P(y)}{P(x_1, \dots, x_m)}\\
+  \text{Or without normalization:}\\
+  \mathbb{M}_{MAP}(\cv{x}) =& \arg\max_{\cv{y}} P(x_1, \dots, x_m | y) \cdot P(y)\\
+\end{align*}
+
+To avoid overfitting, and solve some computational problems due to the curse of dimensionality, we can assume independence, which then results in the \textbf{Naive Bayes' Classifier}\sidenote{Naive Bayes' Classifier}:
+\begin{align*}
+  \mathbb{M}(\cv{x}) = \arg\max_{\cv{y}}\left(\prod_{i=1}^m P[x_i | y]\right) \cdot P(y)
+\end{align*}
+\begin{itemize}
+  \item Many combinations of features don't appear in the training data, but we can't conclude that these cannot happen.
+  \item We can use this classifier, to approximate them.
+\end{itemize}
