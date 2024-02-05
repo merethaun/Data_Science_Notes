@@ -1,0 +1,39 @@
+\subsection{Continuous target features}
+
+Since we now can't count the "positive" vs "negative" predictions, we need to introduce another error measure. We have the following to our deposit given the actual target value $t_i$, the descriptive features $x_i$ and the predicted value $\mathbb{M}(x_i)$:
+\begin{align*}
+  \text{Sum of squared errors}: &\  \frac{1}{2} \sum_{i=1}^n\big( t_i - \mathbb{M}(x_i) \big)^2\\
+  \text{Mean squared error}: &\  \frac{1}{n} \sum_{i=1}^n\big( t_i - \mathbb{M}(x_i) \big)^2\\
+  \text{Root mean squared error}: &\ \sqrt{\frac{1}{n} \sum_{i=1}^n\big( t_i - \mathbb{M}(x_i) \big)^2}\\
+  \text{Mean absolute error}: &\ \frac{1}{n} \sum_{i=1}^n \text{\color{mathblue} abs} \big( t_i - \mathbb{M}(x_i) \big) && \begin{array}{l}\text{\footnotesize\color{gray}easy interpretation as}\\\text{\footnotesize\color{gray}average (absolute) error}\end{array}
+\end{align*}
+
+From these known errors, we can derive a new idea: the \textbf{$R^2$ coefficient}\sidenote{$R^2$}:
+\begin{align*}
+  R^2 &= 1 - \frac{sum\ of\ squared\ errors}{total\ sum\ of\ squares}\\
+  \text{with } total\ sum\ of\ squares &= \frac{1}{2} \sum_{i=1}^n \big( t_i - \overline{t} \big)^2 {\color{gray}\text{\color{gray} , for average target } \overline{t}}
+\end{align*}
+\begin{itemize}
+  \item This coefficient compares the performance with guessing the overall average
+  \item Value interpretation (range typically $[0,1]$)
+  \begin{align*}
+    1 &: \text{perfect score, all predictions are perfect}\\
+    0 &: \text{terrible score, not better than baseline (guessing average)}\\
+    <0 &: \text{even worse than guessing mean}
+  \end{align*}
+  $1$ (perfect score) to $0$ (terrible score)
+\end{itemize}
+
+Just as before, we can use the following cross-validation techniques:
+\begin{itemize}
+  \item $k$-fold cross-validation
+  \item Leave-one-out cross-validation ($k=1$)
+  \item Bootstrapping ($k$ times, leave out random $m$ elements)
+  \item Out-of-time sampling
+\end{itemize}
+
+So as we saw, to abstract from boolean classification to more complex targets, we do:
+\begin{itemize}
+  \item Boolean confusion matrix measures for each class if the targets are multinomial
+  \item A $R^2$-coefficient evaluation (or also an evaluation using previously introduced errors), which also shows how much better than average guessing we are for continuous output targets
+\end{itemize}

@@ -1,0 +1,27 @@
+\subsection{A/B Testing}
+
+So far, we only looked at supervised learning. In this learning setting, we turn data into predictive models. Next, we want to \textbf{turn predictions into recommendations}\sidenote{Recommendations}:
+\begin{itemize}
+  \item The predictions are about whether we fail or not. So, if you will fail, start working.
+  \item Then, if you "change the descriptive features" (so the input), we predict a more desirable outcome.
+  \item This concept can also be adapted to "customers like you ended up buying", etc.
+\end{itemize}
+
+Our main issues for recommendations are:
+\begin{itemize}
+  \item What is cause and what is effect? What is controllable, and what isn't? 
+    \begin{note}(E.g.: wealthy people drive Porsches, so let's buy one; if I wear sunglasses, it will not rain)\end{note}
+    \begin{itemize}
+      \item[$\implies$] correlation doesn't imply causation
+    \end{itemize}
+  \item Recommendations change the reality they are based on
+\end{itemize}
+
+We often have hidden variables \begin{note}(e.g. explaining the following correlations: eating more ice cream leads to more criminal behavior, using an umbrella leads to higher walking speeds)\end{note}. To identify them, we introduce \textbf{A/B testing}\sidenote{A/B testing}. For that, we randomly offer two \textbf{variants}: 
+\begin{align*}
+  A \longleftrightarrow B
+\end{align*}
+\begin{itemize}
+  \item For example: intervene based on prediction or not
+  \item Then we conduct statistical hypothesis testing (decide whether data at hand sufficiently supports a particular hypothesis)
+\end{itemize}
